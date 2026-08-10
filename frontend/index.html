@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050A18">
+
+    <title>Invite Shark — Indique Amigos e Ganhe Recompensas</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Ranade — Fontshare -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=ranade@300,400,500,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body class="is-loading">
+
+
+    <!-- =====================================================
+     PRELOADER
+====================================================== -->
+
+    <div class="preloader" id="preloader" aria-hidden="true">
+
+        <div class="preloader__content">
+
+            <p class="preloader__text" id="preloader-text">
+                <span class="preloader__line">
+                    <span class="preloader__word"><span>Uma</span></span>
+                    <span class="preloader__word"><span>indicação</span></span>
+                    <span class="preloader__word"><span>pode</span></span>
+                    <span class="preloader__word"><span>ser</span></span>
+                </span>
+                <span class="preloader__line">
+                    <span class="preloader__word"><span>o</span></span>
+                    <span class="preloader__word"><span>começo</span></span>
+                    <span class="preloader__word"><span>de</span></span>
+                    <span class="preloader__word"><span>uma</span></span>
+                </span>
+                <span class="preloader__line">
+                    <span class="preloader__word"><span>grande</span></span>
+                    <span class="preloader__word"><span>recompensa.</span></span>
+                </span>
+            </p>
+
+        </div>
+
+        <svg class="preloader__curve" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,160 Q500,20 1000,160" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round"></path>
+        </svg>
+
+    </div>
+
+
+    <!-- =====================================================
+     HEADER
+====================================================== -->
+
+    <header class="header" id="navbar">
+
+        <div class="header__container">
+
+            <a href="#inicio" class="logo" aria-label="Invite Shark - Início">
+                <img src="images/logo/NOVO LOGO SHIVER BROKERR-04.png" alt="Invite Shark">
+            </a>
+
+            <nav class="nav nav--desktop" id="desktop-navigation" aria-label="Navegação principal">
+
+                <a href="#como-funciona"><span class="nav__prefix" aria-hidden="true">//</span>Como funciona</a>
+
+                <a href="#progresso"><span class="nav__prefix" aria-hidden="true">//</span>Progresso</a>
+
+                <a href="#missoes"><span class="nav__prefix" aria-hidden="true">//</span>Missões</a>
+
+                <a href="#recompensas"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
+
+                <a href="#faq"><span class="nav__prefix" aria-hidden="true">//</span>FAQ</a>
+
+            </nav>
+
+            <div class="header__actions">
+
+                <a href="#como-funciona" class="header__link">
+                    Saiba mais
+                </a>
+
+                <a href="#acessar" class="button button--pill header__cta">
+                    Acessar
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu"
+                aria-controls="mobile-navigation" aria-expanded="false">
+                <span class="menu-toggle__bar"></span>
+                <span class="menu-toggle__bar"></span>
+                <span class="menu-toggle__bar"></span>
+            </button>
+
+        </div>
+
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-mobile" id="mobile-navigation" aria-label="Menu mobile" hidden>
+
+        <a href="#como-funciona" style="--nav-i: 0"><span class="nav__prefix" aria-hidden="true">//</span>Como funciona</a>
+
+        <a href="#progresso" style="--nav-i: 1"><span class="nav__prefix" aria-hidden="true">//</span>Progresso</a>
+
+        <a href="#missoes" style="--nav-i: 2"><span class="nav__prefix" aria-hidden="true">//</span>Missões</a>
+
+        <a href="#recompensas" style="--nav-i: 3"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
+
+        <a href="#faq" style="--nav-i: 4"><span class="nav__prefix" aria-hidden="true">//</span>FAQ</a>
+
+        <a href="#acessar" class="nav-mobile__cta" style="--nav-i: 5">Acessar</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+        <section class="hero" id="inicio">
+
+            <canvas class="hero__stardust" id="hero-stardust" aria-hidden="true"></canvas>
+
+            <div class="container hero__container">
+
+                <div class="hero__content">
+
+                    <span class="hero__eyebrow" data-animate="rise" data-delay="0">
+                        <i class="fa-solid fa-bolt"></i>
+                        Invite Shark
+                    </span>
+
+                    <h1 class="hero__title" data-animate="rise" data-delay="80">
+                        Convide amigos.
+                        <span>Avance nas recompensas.</span>
+                    </h1>
+
+                    <p class="hero__description" data-animate="rise" data-delay="160">
+                        Compartilhe seu convite, acompanhe quem está
+                        avançando com você e desbloqueie novas
+                        recompensas conforme sua rede cresce.
+                    </p>
+
+                    <div class="hero__actions" data-animate="rise" data-delay="240">
+
+                        <a href="#acessar" class="button button--primary">
+                            Acessar Invite Shark
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#como-funciona" class="button button--secondary">
+                            Como funciona
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero__visual" data-animate="scale-in" data-delay="180">
+
+                    <canvas class="hero__starburst" id="hero-starburst" aria-hidden="true"></canvas>
+
+                    <div class="hero__pixel-orb" aria-hidden="true">
+                        <canvas id="hero-pixel"></canvas>
+                        <span class="hero__beam"></span>
+                    </div>
+
+                    <div class="hero__glow"></div>
+
+                    
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         COMO FUNCIONA
+    ====================================================== -->
+
+        <section class="section how-it-works" id="como-funciona">
+
+            <div class="container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        Simples e transparente
+                    </span>
+
+                    <h2>
+                        Como funciona o
+                        <span>Invite Shark?</span>
+                    </h2>
+
+                    <p>
+                        Quanto mais amigos qualificados você indicar,
+                        mais você avança nas missões e recompensas.
+                    </p>
+
+                </div>
+
+                <div class="steps">
+
+                    <article class="step-card" data-reveal data-stagger>
+
+                        <span class="step-card__number">
+                            01
+                        </span>
+
+                        <div class="step-card__icon">
+                            <i class="fa-solid fa-unlock"></i>
+                        </div>
+
+                        <h3>
+                            Libere o programa
+                        </h3>
+
+                        <p>
+                            Acesse o Invite Shark e confira as condições
+                            disponíveis para participar.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card" data-reveal data-stagger>
+
+                        <span class="step-card__number">
+                            02
+                        </span>
+
+                        <div class="step-card__icon">
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+
+                        <h3>
+                            Copie seu link
+                        </h3>
+
+                        <p>
+                            Gere ou copie seu link exclusivo de indicação
+                            para compartilhar com seus amigos.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card" data-reveal data-stagger>
+
+                        <span class="step-card__number">
+                            03
+                        </span>
+
+                        <div class="step-card__icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <h3>
+                            Convide amigos
+                        </h3>
+
+                        <p>
+                            Seus amigos precisam se cadastrar através
+                            do seu link para serem rastreados.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card" data-reveal data-stagger>
+
+                        <span class="step-card__number">
+                            04
+                        </span>
+
+                        <div class="step-card__icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+
+                        <h3>
+                            Acompanhe
+                        </h3>
+
+                        <p>
+                            Veja o status dos seus indicados e acompanhe
+                            sua evolução dentro da plataforma.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step-card" data-reveal data-stagger>
+
+                        <span class="step-card__number">
+                            05
+                        </span>
+
+                        <div class="step-card__icon">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+
+                        <h3>
+                            Resgate
+                        </h3>
+
+                        <p>
+                            Ao cumprir os critérios de cada missão,
+                            confira as recompensas disponíveis.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         PROGRESSO DO CLIENTE
+    ====================================================== -->
+
+        <section
+            class="section progress-board"
+            id="progresso"
+            data-progress-section
+            data-invited="3"
+            data-qualified="2"
+            data-unlocked="1"
+            data-next-goal="5">
+
+            <div class="container">
+
+                <div class="section-heading progress-board__heading">
+
+                    <span class="section-heading__eyebrow">
+                        Acompanhe sua evolução
+                    </span>
+
+                    <h2>
+                        Seu progresso no
+                        <span>Invite Shark</span>
+                    </h2>
+
+                    <p>
+                        Veja quantas pessoas você já convidou, o avanço
+                        até a próxima recompensa e o status das missões.
+                    </p>
+
+                </div>
+
+                <div class="progress-board__grid">
+
+                    <article class="progress-panel progress-panel--main">
+
+                        <div class="progress-panel__glow"></div>
+
+                        <div class="progress-panel__header">
+
+                            <div>
+                                <span class="progress-panel__label">
+                                    Seu progresso
+                                </span>
+
+                                <strong>
+                                    Invite Shark
+                                </strong>
+                            </div>
+
+                            <span class="progress-panel__status">
+                                <i class="fa-solid fa-circle"></i>
+                                Ativo
+                            </span>
+
+                        </div>
+
+                        <div class="progress-panel__body">
+
+                            <div class="progress-info">
+
+                                <span>
+                                    Próxima recompensa
+                                </span>
+
+                                <strong data-progress-next-label>
+                                    3 / 5 indicados
+                                </strong>
+
+                            </div>
+
+                            <div class="progress-bar progress-bar--xl">
+
+                                <span
+                                    class="progress-bar__fill"
+                                    data-progress-fill
+                                    data-current="3"
+                                    data-goal="5"
+                                    style="width: 0%;"></span>
+
+                            </div>
+
+                            <div class="progress-info progress-info--small">
+
+                                <span>
+                                    <span data-progress-count data-count-to="3">0</span> convidados
+                                </span>
+
+                                <span>
+                                    <span data-progress-count data-count-to="5">0</span> necessários
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="progress-panel__stats">
+
+                            <div class="progress-stat">
+
+                                <span class="progress-stat__icon">
+                                    <i class="fa-solid fa-user-group"></i>
+                                </span>
+
+                                <div>
+                                    <strong data-progress-count data-count-to="3">0</strong>
+                                    <span>Indicados</span>
+                                </div>
+
+                            </div>
+
+                            <div class="progress-stat">
+
+                                <span class="progress-stat__icon">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </span>
+
+                                <div>
+                                    <strong data-progress-count data-count-to="2">0</strong>
+                                    <span>Qualificados</span>
+                                </div>
+
+                            </div>
+
+                            <div class="progress-stat">
+
+                                <span class="progress-stat__icon">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </span>
+
+                                <div>
+                                    <strong data-progress-count data-count-to="1">0</strong>
+                                    <span>Desbloqueada</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+                        
+
+                    <article class="progress-panel progress-panel--mission">
+
+                        <span class="progress-panel__step">
+                            Missão 01
+                        </span>
+
+                        <div class="progress-panel__icon">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+
+                        <strong>
+                            <span data-progress-count data-count-to="3">0</span>/5
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <div class="progress-bar">
+
+                            <span
+                                class="progress-bar__fill"
+                                data-progress-fill
+                                data-current="3"
+                                data-goal="5"
+                                style="width: 0%;"></span>
+
+                        </div>
+
+                        <p>
+                            Primeira recompensa desbloqueável.
+                        </p>
+
+                    </article>
+
+
+                    <article class="progress-panel progress-panel--mission">
+
+                        <span class="progress-panel__step">
+                            Missão 02
+                        </span>
+
+                        <div class="progress-panel__icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            <span data-progress-count data-count-to="3">0</span>/8
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <div class="progress-bar">
+
+                            <span
+                                class="progress-bar__fill"
+                                data-progress-fill
+                                data-current="3"
+                                data-goal="8"
+                                style="width: 0%;"></span>
+
+                        </div>
+
+                        <p>
+                            Continue crescendo sua rede.
+                        </p>
+
+                    </article>
+
+
+                    <article class="progress-panel progress-panel--mission progress-panel--vip">
+
+                        <span class="progress-panel__step">
+                            Nível especial
+                        </span>
+
+                        <div class="progress-panel__icon">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+
+                        <strong>
+                            VIP
+                        </strong>
+
+                        <h3>
+                            Benefícios especiais
+                        </h3>
+
+                        <div class="progress-bar">
+
+                            <span
+                                class="progress-bar__fill progress-bar__fill--purple"
+                                data-progress-fill
+                                data-current="3"
+                                data-goal="15"
+                                style="width: 0%;"></span>
+
+                        </div>
+
+                        <p>
+                            Critérios conforme regulamento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="progress-panel progress-panel--mission">
+
+                        <span class="progress-panel__step">
+                            Missão final
+                        </span>
+
+                        <div class="progress-panel__icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+
+                        <strong>
+                            <span data-progress-count data-count-to="3">0</span>/25
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <div class="progress-bar">
+
+                            <span
+                                class="progress-bar__fill progress-bar__fill--gold"
+                                data-progress-fill
+                                data-current="3"
+                                data-goal="25"
+                                style="width: 0%;"></span>
+
+                        </div>
+
+                        <p>
+                            Alcance a próxima grande recompensa.
+                        </p>
+
+                    </article>
+
+                </div>
+                
+                   <!-- OBSERVAÇÃO -->
+            <p class="progress__disclaimer">
+                Dados meramente ilustrativos.
+            </p>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         TRADER QUALIFICADO
+    ====================================================== -->
+
+        <section class="section qualified" id="qualificado">
+
+            <div class="container qualified__container">
+
+                <div class="qualified__content" data-reveal="left">
+
+                    <span class="section-heading__eyebrow">
+                        Antes de avançar
+                    </span>
+
+                    <h2>
+                        O que é um
+                        <span>trader qualificado?</span>
+                    </h2>
+
+                    <p>
+                        Nem todo cadastro realizado pelo seu link
+                        necessariamente conta para uma missão.
+                        O indicado precisa cumprir os critérios
+                        definidos pelo programa.
+                    </p>
+
+                    <div class="qualified__criteria">
+
+                        <div class="criteria">
+
+                            <div class="criteria__icon">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Cadastro pelo seu link
+                                </strong>
+
+                                <span>
+                                    O registro precisa ser atribuído
+                                    corretamente à sua indicação.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="criteria">
+
+                            <div class="criteria__icon">
+                                <i class="fa-solid fa-wallet"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Depósito mínimo
+                                </strong>
+
+                                <span>
+                                    O indicado precisa cumprir o valor
+                                    mínimo estabelecido pelo programa.
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="criteria">
+
+                            <div class="criteria__icon">
+                                <i class="fa-solid fa-chart-candlestick"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Operações válidas
+                                </strong>
+
+                                <span>
+                                    Também podem existir critérios
+                                    relacionados às operações realizadas.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="qualified__notice">
+                        <i class="fa-solid fa-circle-info"></i>
+                        As regras finais de qualificação devem ser
+                        consultadas no regulamento vigente.
+                    </p>
+
+                </div>
+
+                <div class="qualified__visual" data-reveal="right" data-delay="120">
+
+                    <div class="qualification-card">
+
+                        <div class="qualification-card__top">
+
+                            <span>
+                                Status da indicação
+                            </span>
+
+                            <span class="status status--pending">
+                                Em análise
+                            </span>
+
+                        </div>
+
+                        <div class="qualification-card__user">
+
+                            <div class="avatar">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Novo indicado
+                                </strong>
+
+                                <span>
+                                    Cadastro identificado
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="qualification-card__steps">
+
+                            <div class="qualification-step is-complete">
+                                <span>
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+
+                                <div>
+                                    <strong>Cadastro</strong>
+                                    <small>Concluído</small>
+                                </div>
+                            </div>
+
+                            <div class="qualification-step is-active">
+                                <span>
+                                    <i class="fa-solid fa-wallet"></i>
+                                </span>
+
+                                <div>
+                                    <strong>Depósito</strong>
+                                    <small>Aguardando</small>
+                                </div>
+                            </div>
+
+                            <div class="qualification-step">
+                                <span>
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+
+                                <div>
+                                    <strong>Operações</strong>
+                                    <small>Pendente</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         BENEFÍCIO DO INDICADO
+    ====================================================== -->
+
+        <section class="section referred-benefit" id="beneficio-indicado">
+
+            <div class="container">
+
+                <div class="benefit-card" data-reveal="scale">
+
+                    <div class="benefit-card__content">
+
+                        <span class="section-heading__eyebrow">
+                            Benefício para quem entra
+                        </span>
+
+                        <h2>
+                            Seu amigo também
+                            <span>ganha.</span>
+                        </h2>
+
+                        <p>
+                            Ao entrar através do seu convite e cumprir
+                            as condições aplicáveis, o indicado pode
+                            ter acesso a uma operação Risk Free de até
+                            <strong>US$15</strong>.
+                        </p>
+
+                        <div class="benefit-card__condition">
+
+                            <i class="fa-solid fa-ticket"></i>
+
+                            <div>
+                                <strong>
+                                    Use o cupom de indicação
+                                </strong>
+
+                                <span>
+                                    O benefício está sujeito às regras
+                                    e condições da campanha.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="benefit-card__reward">
+
+                        <span class="reward-label">
+                            ATÉ
+                        </span>
+
+                        <strong>
+                            US$15
+                        </strong>
+
+                        <span>
+                            Risk Free
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         MISSÕES
+    ====================================================== -->
+
+        <section class="section missions" id="missoes">
+
+            <div class="container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        Evolua por etapas
+                    </span>
+
+                    <h2>
+                        Cada indicação
+                        <span>leva você mais longe.</span>
+                    </h2>
+
+                    <p>
+                        Avance pelas missões e descubra o que pode ser
+                        desbloqueado em cada etapa.
+                    </p>
+
+                </div>
+
+                <div class="missions-progress" data-missions-line>
+
+                    <div class="missions-line" aria-hidden="true">
+                        <span class="missions-line__track"></span>
+                        <span class="missions-line__progress"></span>
+                        <span class="missions-line__glow"></span>
+                    </div>
+
+                    <article class="mission-card mission-card--active" data-reveal data-stagger>
+
+                        <span class="mission-card__step">
+                            MISSÃO 01
+                        </span>
+
+                        <div class="mission-card__icon">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <p>
+                            Primeira recompensa desbloqueável.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mission-card" data-reveal data-stagger>
+
+                        <span class="mission-card__step">
+                            MISSÃO 02
+                        </span>
+
+                        <div class="mission-card__icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <p>
+                            Continue crescendo sua rede.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mission-card mission-card--vip" data-reveal data-stagger>
+
+                        <span class="mission-card__step">
+                            NÍVEL ESPECIAL
+                        </span>
+
+                        <div class="mission-card__icon">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+
+                        <strong>
+                            VIP
+                        </strong>
+
+                        <h3>
+                            Benefícios especiais
+                        </h3>
+
+                        <p>
+                            Critérios e benefícios conforme regulamento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="mission-card" data-reveal data-stagger>
+
+                        <span class="mission-card__step">
+                            MISSÃO FINAL
+                        </span>
+
+                        <div class="mission-card__icon">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+
+                        <strong>
+                            25
+                        </strong>
+
+                        <h3>
+                            Indicados
+                        </h3>
+
+                        <p>
+                            Alcance a próxima grande recompensa.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+         RECOMPENSAS
+    ====================================================== -->
+
+        <section class="section rewards" id="recompensas">
+
+            <div class="container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        O que você pode desbloquear
+                    </span>
+
+                    <h2>
+                        Recompensas para
+                        <span>cada conquista.</span>
+                    </h2>
+
+                    <p>
+                        As recompensas podem variar conforme a missão,
+                        elegibilidade e condições da campanha.
+                    </p>
+
+                </div>
+
+                <div class="rewards-grid">
+
+                    <article class="reward-card" data-reveal="scale" data-stagger>
+
+                        <div class="reward-card__icon">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+
+                        <span>
+                            RECOMPENSA
+                        </span>
+
+                        <h3>
+                            Saldo
+                        </h3>
+
+                        <p>
+                            Benefícios vinculados ao cumprimento
+                            dos critérios da campanha.
+                        </p>
+
+                    </article>
+
+
+                    <article class="reward-card reward-card--featured" data-reveal="scale" data-stagger>
+
+                        <div class="reward-card__icon">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+
+                        <span>
+                            RECOMPENSA
+                        </span>
+
+                        <h3>
+                            Box
+                        </h3>
+
+                        <p>
+                            Um benefício que pode ser desbloqueado
+                            conforme a progressão da campanha.
+                        </p>
+
+                    </article>
+
+
+                    <article class="reward-card" data-reveal="scale" data-stagger>
+
+                        <div class="reward-card__icon">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+
+                        <span>
+                            RECOMPENSA
+                        </span>
+
+                        <h3>
+                            Prêmio
+                        </h3>
+
+                        <p>
+                            Prêmios sujeitos às regras, disponibilidade
+                            e elegibilidade.
+                        </p>
+
+                    </article>
+
+
+                    <article class="reward-card reward-card--travel" data-reveal="scale" data-stagger>
+
+                        <div class="reward-card__icon">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+
+                        <span>
+                            RECOMPENSA ESPECIAL
+                        </span>
+
+                        <h3>
+                            Viagem
+                        </h3>
+
+                        <p>
+                            Uma experiência especial vinculada aos
+                            critérios da campanha.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <div class="rewards-disclaimer" data-reveal="fade" data-delay="200">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        A exibição de uma recompensa não significa que
+                        ela já foi concedida ou que o participante possui
+                        direito adquirido a ela. O desbloqueio depende
+                        do cumprimento das condições aplicáveis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         CONFIANÇA
+    ====================================================== -->
+
+        <section class="section trust" id="confianca">
+
+            <div class="container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        Transparência
+                    </span>
+
+                    <h2>
+                        Saiba sempre
+                        <span>onde você está.</span>
+                    </h2>
+
+                    <p>
+                        O programa foi pensado para deixar o processo
+                        de indicação claro e rastreável.
+                    </p>
+
+                </div>
+
+                <div class="trust-grid">
+
+                    <article class="trust-card" data-reveal="fade" data-stagger>
+
+                        <div class="trust-card__icon">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+
+                        <h3>
+                            Rastreamento
+                        </h3>
+
+                        <p>
+                            Seu link permite identificar os cadastros
+                            atribuídos à sua indicação.
+                        </p>
+
+                    </article>
+
+
+                    <article class="trust-card" data-reveal="fade" data-stagger>
+
+                        <div class="trust-card__icon">
+                            <i class="fa-solid fa-rotate"></i>
+                        </div>
+
+                        <h3>
+                            Status atualizado
+                        </h3>
+
+                        <p>
+                            Acompanhe a evolução dos indicados e das
+                            condições de qualificação.
+                        </p>
+
+                    </article>
+
+
+                    <article class="trust-card" data-reveal="fade" data-stagger>
+
+                        <div class="trust-card__icon">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+
+                        <h3>
+                            Suporte
+                        </h3>
+
+                        <p>
+                            Consulte os canais oficiais caso tenha
+                            dúvidas sobre sua participação.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+        <section class="section faq" id="faq">
+
+            <div class="container faq__container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        Tire suas dúvidas
+                    </span>
+
+                    <h2>
+                        Perguntas
+                        <span>frequentes.</span>
+                    </h2>
+
+                </div>
+
+                <div class="faq-list">
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            Quem pode participar?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                A participação depende dos critérios de
+                                elegibilidade definidos no regulamento vigente
+                                da campanha.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            O cadastro sozinho conta como indicação?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                Não necessariamente. Para uma indicação ser
+                                considerada qualificada, o indicado pode precisar
+                                cumprir requisitos adicionais de depósito e
+                                operações válidas.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            O que é um trader qualificado?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                É o participante indicado que cumpre todos os
+                                critérios definidos para qualificação dentro
+                                do período válido da campanha.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            Quando minha recompensa é liberada?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                O prazo e as condições de liberação variam
+                                conforme a recompensa e devem ser consultados
+                                no regulamento.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            Como funciona o nível VIP?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                O nível VIP depende dos critérios específicos
+                                definidos para a campanha. Consulte as regras
+                                oficiais para saber como desbloqueá-lo.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            Posso indicar qualquer pessoa?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                As indicações estão sujeitas às regras de
+                                elegibilidade, disponibilidade regional e
+                                demais condições da campanha.
+                            </p>
+                        </div>
+
+                    </details>
+
+
+                    <details class="faq-item" data-reveal data-stagger>
+
+                        <summary>
+                            O que acontece em caso de fraude?
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+
+                        <div class="faq-item__body">
+                            <p>
+                                Indicações fraudulentas, manipulação do programa
+                                ou tentativas de burlar as regras podem resultar
+                                na desqualificação e perda de benefícios.
+                            </p>
+                        </div>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         TERMOS E RISCO
+    ====================================================== -->
+
+        <section class="section terms" id="termos">
+
+            <div class="container">
+
+                <div class="terms-card" data-reveal="fade">
+
+                    <div class="terms-card__icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div class="terms-card__content">
+
+                        <span class="section-heading__eyebrow">
+                            Importante
+                        </span>
+
+                        <h2>
+                            Termos, condições e riscos
+                        </h2>
+
+                        <p>
+                            A participação no Invite Shark está sujeita
+                            ao regulamento oficial, critérios de
+                            elegibilidade, disponibilidade regional,
+                            condições de saque e demais regras aplicáveis.
+                        </p>
+
+                        <p>
+                            Recompensas e benefícios apresentados na página
+                            podem depender do cumprimento de condições
+                            específicas e não devem ser interpretados como
+                            garantia de ganho.
+                        </p>
+
+                        <div class="terms-links">
+
+                            <a href="#regulamento">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Ver regulamento
+                            </a>
+
+                            <a href="#privacidade">
+                                <i class="fa-solid fa-lock"></i>
+                                Privacidade
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         CTA FINAL
+    ====================================================== -->
+
+        <section class="final-cta" id="acessar">
+
+            <div class="container final-cta__container" data-reveal="scale">
+
+                <div class="final-cta__glow"></div>
+
+                <span class="section-heading__eyebrow">
+                    Sua próxima conquista começa aqui
+                </span>
+
+                <h2>
+                    Convide seus amigos e
+                    <span>avance para a próxima recompensa.</span>
+                </h2>
+
+                <p>
+                    Acesse o Invite Shark, compartilhe seu link
+                    e acompanhe sua evolução.
+                </p>
+
+                <a href="#" class="button button--gold">
+                    Acessar Invite Shark
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+     FOOTER
+====================================================== -->
+
+  <footer class="footer">
+
+    <div class="container footer__main">
+
+        <!-- MARCA -->
+        <div class="footer__brand">
+
+            <a href="#inicio" class="footer__logo" aria-label="Invite Shark - Início">
+                <img
+                    src="images/logo/NOVO LOGO SHIVER BROKERR-04.png"
+                    alt="Invite Shark"
+                >
+            </a>
+
+            <p class="footer__description">
+                Conecte pessoas, compartilhe oportunidades e transforme
+                suas indicações em novas possibilidades.
+            </p>
+
+        </div>
+
+
+        <!-- PROGRAMA -->
+        <div class="footer__column">
+
+            <h3>Programa</h3>
+
+            <a href="#como-funciona">
+                Como funciona
+            </a>
+
+            <a href="#progresso">
+                Progresso
+            </a>
+
+            <a href="#missoes">
+                Missões
+            </a>
+
+            <a href="#recompensas">
+                Recompensas
+            </a>
+
+        </div>
+
+
+        <!-- AJUDA -->
+        <div class="footer__column">
+
+            <h3>Ajuda</h3>
+
+            <a href="#faq">
+                FAQ
+            </a>
+
+            <a href="#termos">
+                Termos e riscos
+            </a>
+
+            <a href="#privacidade">
+                Privacidade
+            </a>
+
+        </div>
+
+
+        <!-- CTA -->
+        <div class="footer__column footer__column--cta">
+
+            <span class="footer__eyebrow">
+                // PARTICIPE
+            </span>
+
+            <h3>
+                Faça sua próxima indicação.
+            </h3>
+
+            <a href="#acessar" class="footer__button">
+                Acessar plataforma
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="container footer__bottom">
+
+        <span>
+            © 2026 Invite Shark. Todos os direitos reservados.
+        </span>
+
+        <span>
+            Invista com responsabilidade.
+        </span>
+
+    </div>
+
+</footer>
+
+
+    <!-- JavaScript principal -->
+    <script src="js/preloader.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
