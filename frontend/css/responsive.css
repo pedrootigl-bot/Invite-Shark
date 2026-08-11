@@ -38,11 +38,16 @@ RESPONSIVE — LARGE LAPTOP
 
     .steps-carousel {
         --steps-visible: 3;
-        --steps-gap: 14px;
+        --steps-gap: 36px;
     }
 
-    .progress-board__media {
-        border-radius: 22px;
+    .progress-board__layout {
+        gap: 28px 36px;
+    }
+
+    .progress-board__panel {
+        min-height: 300px;
+        padding: 30px 26px;
     }
 
     .qualified__container,
@@ -116,18 +121,17 @@ RESPONSIVE — TABLET
     }
 
     .hero__visual {
-        min-height: 460px;
+        min-height: 420px;
     }
 
-    .hero__pixel-orb {
-        width: min(100%, 420px);
-        max-height: 420px;
+    .hero__reward {
+        width: min(100%, 520px);
     }
 
     .hero__glow {
-        width: min(100%, 420px);
+        width: min(100%, 480px);
         height: min(100%, 420px);
-        max-width: 420px;
+        max-width: 480px;
         max-height: 420px;
     }
 
@@ -153,16 +157,34 @@ RESPONSIVE — TABLET
 
     .steps-carousel {
         --steps-visible: 2;
-        --steps-gap: 14px;
+        --steps-gap: 36px;
         column-gap: 10px;
     }
 
     .step-card {
-        min-height: 220px;
+        min-height: 240px;
+        padding: 28px 20px;
     }
 
-    .progress-board__media {
-        border-radius: 20px;
+    .step-card h3 {
+        font-size: 18px;
+    }
+
+    .progress-board__layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .progress-board__panel {
+        min-height: 0;
+        padding: 28px 24px;
+    }
+
+    a.button.progress-board__cta {
+        width: 100%;
+        min-width: 0;
+        justify-content: center;
+        text-align: center;
     }
 
     .qualified__container,
@@ -174,29 +196,41 @@ RESPONSIVE — TABLET
     .qualified__content,
     .dashboard-preview__content {
         max-width: none;
-        text-align: center;
-    }
-
-    .qualified__criteria {
-        max-width: 640px;
-        margin-inline: auto;
         text-align: left;
     }
 
+    .qualified__criteria {
+        max-width: none;
+        margin-inline: 0;
+    }
+
     .qualified__notice {
-        justify-content: center;
-        max-width: 640px;
+        justify-content: flex-start;
+        max-width: none;
+        margin-inline: 0;
+    }
+
+    .qualified__media {
+        width: min(100%, 520px);
         margin-inline: auto;
     }
 
-    .qualification-card,
     .dashboard {
         margin-inline: auto;
     }
 
     .benefit-card {
-        padding: 42px 36px;
-        gap: 36px;
+        padding: 34px 30px;
+        gap: 32px;
+    }
+
+    .conquest__layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .conquest-rewards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .missions-progress {
@@ -211,7 +245,7 @@ RESPONSIVE — TABLET
     }
 
     .mission-card {
-        min-height: 280px;
+        min-height: 250px;
     }
 
     .rewards-grid {
@@ -219,7 +253,7 @@ RESPONSIVE — TABLET
     }
 
     .reward-card {
-        min-height: 240px;
+        min-height: 220px;
     }
 
     .trust-grid {
@@ -289,7 +323,7 @@ RESPONSIVE — TABLET
 
     .steps-carousel {
         --steps-visible: 1;
-        --steps-gap: 12px;
+        --steps-gap: 16px;
 
         grid-template-columns: minmax(0, 1fr);
         column-gap: 0;
@@ -306,6 +340,11 @@ RESPONSIVE — TABLET
 
     .steps-carousel__dots {
         grid-column: 1;
+    }
+
+    .step-card:not(:last-child)::before,
+    .step-card:not(:last-child)::after {
+        display: none;
     }
 
     .section-cta {
@@ -388,42 +427,27 @@ RESPONSIVE — TABLET
        ===================================================== */
 
     .hero__visual {
-        width: min(100%, 340px);
-        max-width: 340px;
+        width: min(100%, 420px);
+        max-width: 420px;
 
         min-height: 0;
 
         margin-inline: auto;
-
-        aspect-ratio: 1 / 1;
 
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .hero__pixel-orb {
-        width: min(100%, 320px);
-        max-width: 320px;
-
-        max-height: 320px;
+    .hero__reward {
+        width: min(100%, 400px);
     }
 
     .hero__glow {
-        width: min(100%, 320px);
-        height: min(100%, 320px);
-        max-width: 320px;
-        max-height: 320px;
-    }
-
-    .hero__pixel-orb canvas,
-    .hero__pixel-orb img {
-        position: absolute;
-        inset: 0;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover;
-        object-position: center center;
+        width: min(100%, 360px);
+        height: min(100%, 280px);
+        max-width: 360px;
+        max-height: 280px;
     }
 
     .hero-card {
@@ -447,7 +471,7 @@ RESPONSIVE — TABLET
 
         z-index: 1200;
 
-        background: #050918;
+        background: var(--bg);
 
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
@@ -818,7 +842,7 @@ RESPONSIVE — TABLET
 
         border-radius: 999px !important;
 
-        color: #050918 !important;
+        color: var(--black) !important;
 
         background: var(--white) !important;
 
@@ -836,7 +860,7 @@ RESPONSIVE — TABLET
     }
 
     .nav-mobile__cta:hover {
-        color: #050918 !important;
+        color: var(--black) !important;
 
         background: var(--white) !important;
 
@@ -901,17 +925,17 @@ RESPONSIVE — TABLET
     }
 
     .hero__visual {
-        width: min(100%, 300px);
-        max-width: 300px;
+        width: min(100%, 340px);
+        max-width: 340px;
     }
 
-    .hero__pixel-orb {
-        max-width: 280px;
+    .hero__reward {
+        width: min(100%, 320px);
     }
 
     .hero__glow {
-        max-width: 280px;
-        max-height: 280px;
+        max-width: 300px;
+        max-height: 240px;
     }
 
     .hero-card {
@@ -974,7 +998,9 @@ RESPONSIVE — MOBILE
     }
 
     .container {
-        width: min(calc(100% - 32px), var(--container));
+        width: 100%;
+        max-width: 100%;
+        padding: 0 clamp(20px, 4vw, 1.5rem);
     }
 
     .header {
@@ -1053,22 +1079,20 @@ RESPONSIVE — MOBILE
 
     .hero__visual {
         min-height: 0;
-        width: min(100%, 300px);
-        aspect-ratio: 1;
-        max-width: 300px;
+        width: min(100%, 340px);
+        max-width: 340px;
         margin-inline: auto;
     }
 
-    .hero__pixel-orb {
-        width: min(100%, 280px);
-        max-height: 280px;
+    .hero__reward {
+        width: min(100%, 320px);
     }
 
     .hero__glow {
-        width: min(100%, 280px);
-        height: min(100%, 280px);
-        max-width: 280px;
-        max-height: 280px;
+        width: min(100%, 300px);
+        height: min(100%, 240px);
+        max-width: 300px;
+        max-height: 240px;
     }
 
     .hero-card {
@@ -1123,7 +1147,7 @@ RESPONSIVE — MOBILE
 
     .steps-carousel {
         --steps-visible: 1;
-        --steps-gap: 12px;
+        --steps-gap: 16px;
 
         grid-template-columns: minmax(0, 1fr);
         column-gap: 0;
@@ -1142,78 +1166,43 @@ RESPONSIVE — MOBILE
         grid-column: 1;
     }
 
-    .step-card,
-    .step-card:last-child {
-        min-height: 220px;
-        max-width: none;
-        margin-inline: 0;
-        padding: 24px 20px;
+    .step-card:not(:last-child)::before,
+    .step-card:not(:last-child)::after {
+        display: none;
     }
 
-    .progress-board__media {
+    .step-card,
+    .step-card:last-child {
+        min-height: 240px;
+        max-width: none;
+        margin-inline: 0;
+        padding: 30px 22px;
+    }
+
+    .step-card__icon {
+        font-size: 26px;
+    }
+
+    .step-card h3 {
+        font-size: 18px;
+    }
+
+    .progress-board__layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .progress-board__panel {
+        padding: 24px 20px;
         border-radius: 18px;
     }
 
-    .progress-panel--main {
-        padding: 24px 20px;
-    }
-
-    .progress-panel__stats {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .progress-panel--mission {
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr);
-        grid-template-areas:
-            "step step"
-            "icon strong"
-            "icon title"
-            "bar bar"
-            "desc desc";
-        gap: 6px 14px;
-        align-items: center;
-        min-height: 0;
-        text-align: left;
-    }
-
-    .progress-panel__step {
-        grid-area: step;
-    }
-
-    .progress-panel__icon {
-        grid-area: icon;
-        width: 44px;
-        height: 44px;
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    .progress-panel--mission > strong {
-        grid-area: strong;
-        align-self: end;
+    .progress-board__panel h3 {
         font-size: clamp(24px, 7vw, 30px);
-        line-height: 1.05;
-        text-align: left;
     }
 
-    .progress-panel--mission h3 {
-        grid-area: title;
-        align-self: start;
-        margin-top: 0;
-        font-size: 14px;
-        text-align: left;
-    }
-
-    .progress-panel--mission .progress-bar {
-        grid-area: bar;
-        margin: 10px 0 6px;
-    }
-
-    .progress-panel--mission p {
-        grid-area: desc;
-        text-align: left;
+    .progress-board__panel > p {
+        font-size: 13px;
     }
 
     .qualified__container,
@@ -1222,24 +1211,61 @@ RESPONSIVE — MOBILE
     }
 
     .criteria {
-        padding: 14px;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .criteria__number {
+        font-size: 26px;
+    }
+
+    .criteria__card {
+        min-height: 76px;
+        padding: 14px 14px;
+    }
+
+    .qualified__media {
+        border-radius: 22px;
     }
 
     .benefit-card {
         flex-direction: column;
-        padding: 32px 22px;
+        padding: 28px 20px;
         text-align: center;
-        gap: 28px;
+        gap: 24px;
     }
 
     .benefit-card__content {
         max-width: none;
     }
 
+    .benefit-card__title-row {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .benefit-card__icon {
+        width: 52px;
+    }
+
     .benefit-card__condition {
         width: 100%;
         margin-inline: auto;
         text-align: left;
+    }
+
+    .conquest-panel {
+        padding: 22px 18px;
+    }
+
+    .conquest-rewards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .conquest-reward {
+        min-height: 190px;
+        padding: 18px 12px 14px;
     }
 
     .missions-progress {
@@ -1323,7 +1349,7 @@ RESPONSIVE — MOBILE
         gap: 6px 14px;
         align-items: center;
         min-height: 0;
-        padding: 24px 20px;
+        padding: 18px 16px;
         text-align: left;
     }
 
@@ -1364,39 +1390,81 @@ RESPONSIVE — MOBILE
 
     .reward-card {
         min-height: auto;
-        padding: 24px 20px;
+        padding: 20px 16px;
     }
 
     .reward-card__icon {
-        margin-bottom: 18px;
+        margin-bottom: 14px;
+    }
+
+    .trust-card {
+        padding: 20px 16px;
+    }
+
+    .faq-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .faq-list__col {
+        gap: 10px;
+    }
+
+    .faq .section-heading {
+        margin-bottom: 32px;
     }
 
     .faq-item summary {
-        padding: 18px 16px;
+        min-height: 52px;
+        padding: 14px 16px;
         font-size: 13px;
         gap: 12px;
     }
 
     .faq-item__body p {
-        padding: 0 16px 18px;
+        padding: 0 16px 14px;
         font-size: 12px;
     }
 
     .terms-card {
         flex-direction: column;
-        padding: 24px 20px;
+        padding: 20px 16px;
     }
 
     .final-cta {
-        padding: 84px 0;
+        padding: 72px 0 90px;
     }
 
-    .final-cta__container h2 {
-        font-size: clamp(32px, 9vw, 48px);
+    .final-cta__panel {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 26px 22px;
+        border-radius: 22px;
     }
 
-    .final-cta__container p {
+    .final-cta__copy {
+        max-width: none;
+    }
+
+    .final-cta__copy h2 {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    .final-cta__copy p {
         font-size: 13px;
+    }
+
+    .final-cta__icon {
+        align-self: flex-end;
+        width: 132px;
+        height: 112px;
+    }
+
+    .final-cta__glow {
+        right: 0;
+        width: 220px;
+        height: 160px;
     }
 
     .footer {
@@ -1443,7 +1511,9 @@ RESPONSIVE — SMALL MOBILE
     }
 
     .container {
-        width: calc(100% - 24px);
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
     }
 
     .logo {
@@ -1457,7 +1527,6 @@ RESPONSIVE — SMALL MOBILE
         object-fit: contain;
     }
 
-    .progress-panel--mission,
     .mission-card {
         display: flex;
         flex-direction: column;
@@ -1466,7 +1535,7 @@ RESPONSIVE — SMALL MOBILE
         gap: 0;
         text-align: center;
         min-height: 0;
-        padding: 22px 18px;
+        padding: 18px 16px;
     }
 
     .progress-panel__step,
@@ -1592,22 +1661,20 @@ RESPONSIVE — SMALL MOBILE
     }
 
     .hero__visual {
-        width: min(100%, 260px);
-        max-width: 260px;
-        aspect-ratio: 1;
+        width: min(100%, 300px);
+        max-width: 300px;
         min-height: 0;
     }
 
-    .hero__pixel-orb {
-        width: min(100%, 240px);
-        max-height: 240px;
+    .hero__reward {
+        width: min(100%, 280px);
     }
 
     .hero__glow {
-        width: min(100%, 240px);
-        height: min(100%, 240px);
-        max-width: 240px;
-        max-height: 240px;
+        width: min(100%, 260px);
+        height: min(100%, 200px);
+        max-width: 260px;
+        max-height: 200px;
     }
 
     .hero-card {
@@ -1641,12 +1708,12 @@ RESPONSIVE — SMALL MOBILE
     .section-heading h2,
     .qualified h2,
     .benefit-card h2,
-    .final-cta__container h2 {
-        font-size: clamp(28px, 9vw, 34px);
+    .final-cta__copy h2 {
+        font-size: clamp(22px, 7.5vw, 30px);
     }
 
     .benefit-card {
-        padding: 28px 18px;
+        padding: 24px 16px;
         border-radius: 22px;
     }
 
@@ -1671,11 +1738,11 @@ RESPONSIVE — SMALL MOBILE
         left: 6px;
     }
 
-    .dashboard,
-    .qualification-card {
+    .dashboard {
         padding: 18px;
         border-radius: 18px;
     }
+
 
     .dashboard__cards {
         grid-template-columns: 1fr;

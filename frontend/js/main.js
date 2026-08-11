@@ -178,22 +178,34 @@ function initMobileMenu() {
         });
     }
 
-    function closeFaqItem(item) {
+    function collapseFaqItem(item, { animate = true } = {}) {
         const body = item.querySelector(".faq-item__body");
 
         item.classList.remove("is-open");
-        setFaqBodyHeight(body, false);
+
+        if (!body) {
+            item.open = false;
+            return;
+        }
+
+        if (!animate || prefersReducedMotion) {
+            body.style.height = "0px";
+            item.open = false;
+            return;
+        }
+
+        const currentHeight = body.scrollHeight;
+        body.style.height = `${currentHeight}px`;
+
+        requestAnimationFrame(() => {
+            body.style.height = "0px";
+        });
 
         const onEnd = (event) => {
             if (event.propertyName !== "height") return;
             item.open = false;
-            body?.removeEventListener("transitionend", onEnd);
+            body.removeEventListener("transitionend", onEnd);
         };
-
-        if (prefersReducedMotion || !body) {
-            item.open = false;
-            return;
-        }
 
         body.addEventListener("transitionend", onEnd);
     }
@@ -230,21 +242,26 @@ function initMobileMenu() {
             const body = item.querySelector(".faq-item__body");
             if (!summary || !body) return;
 
+            item.open = false;
+            item.classList.remove("is-open");
             body.style.height = "0px";
 
             summary.addEventListener("click", (event) => {
                 event.preventDefault();
+                event.stopPropagation();
 
                 const isOpen = item.classList.contains("is-open");
 
+                // Fecha os outros na hora (sem animação) para não
+                // parecer que dois itens abrem ao mesmo tempo.
                 items.forEach((other) => {
-                    if (other !== item && other.classList.contains("is-open")) {
-                        closeFaqItem(other);
+                    if (other !== item) {
+                        collapseFaqItem(other, { animate: false });
                     }
                 });
 
                 if (isOpen) {
-                    closeFaqItem(item);
+                    collapseFaqItem(item, { animate: true });
                 } else {
                     openFaqItem(item);
                 }

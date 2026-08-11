@@ -7,17 +7,17 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#050A18">
+    <meta name="theme-color" content="#050505">
 
     <title>Invite Shark — Indique Amigos e Ganhe Recompensas</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo/logo.shiver-preto.png">
 
-    <!-- Ranade — Fontshare -->
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-    <link href="https://api.fontshare.com/v2/css?f[]=ranade@300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Exo 2 — Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -88,7 +88,7 @@
 
                 <a href="#missoes"><span class="nav__prefix" aria-hidden="true">//</span>Missões</a>
 
-                <a href="#recompensas"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
+                <a href="#conquistas"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
 
                 <a href="#faq"><span class="nav__prefix" aria-hidden="true">//</span>FAQ</a>
 
@@ -128,7 +128,7 @@
 
         <a href="#missoes" style="--nav-i: 2"><span class="nav__prefix" aria-hidden="true">//</span>Missões</a>
 
-        <a href="#recompensas" style="--nav-i: 3"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
+        <a href="#conquistas" style="--nav-i: 3"><span class="nav__prefix" aria-hidden="true">//</span>Recompensas</a>
 
         <a href="#faq" style="--nav-i: 4"><span class="nav__prefix" aria-hidden="true">//</span>FAQ</a>
 
@@ -186,14 +186,19 @@
 
                     <canvas class="hero__starburst" id="hero-starburst" aria-hidden="true"></canvas>
 
-                    <div class="hero__pixel-orb" aria-hidden="true">
-                        <canvas id="hero-pixel"></canvas>
-                        <span class="hero__beam"></span>
-                    </div>
-
                     <div class="hero__glow"></div>
 
-                    
+                    <img
+                        class="hero__reward"
+                        src="images/fundo/recompensa.png"
+                        alt="Painel de missões e recompensas do Invite Shark"
+                        width="720"
+                        height="560"
+                        decoding="async"
+                        fetchpriority="high">
+
+                </div>
+
             </div>
 
         </section>
@@ -246,13 +251,13 @@
 
                             <article class="step-card" data-reveal data-stagger>
 
-                                <span class="step-card__number">
-                                    01
-                                </span>
-
                                 <div class="step-card__icon">
                                     <i class="fa-solid fa-unlock"></i>
                                 </div>
+
+                                <span class="step-card__number">
+                                    01
+                                </span>
 
                                 <h3>
                                     Libere o programa
@@ -268,13 +273,13 @@
 
                             <article class="step-card" data-reveal data-stagger>
 
+                                <div class="step-card__icon">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+
                                 <span class="step-card__number">
                                     02
                                 </span>
-
-                                <div class="step-card__icon">
-                                    <i class="fa-solid fa-copy"></i>
-                                </div>
 
                                 <h3>
                                     Copie seu link
@@ -290,13 +295,13 @@
 
                             <article class="step-card" data-reveal data-stagger>
 
-                                <span class="step-card__number">
-                                    03
-                                </span>
-
                                 <div class="step-card__icon">
                                     <i class="fa-solid fa-user-plus"></i>
                                 </div>
+
+                                <span class="step-card__number">
+                                    03
+                                </span>
 
                                 <h3>
                                     Convide amigos
@@ -312,13 +317,13 @@
 
                             <article class="step-card" data-reveal data-stagger>
 
+                                <div class="step-card__icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+
                                 <span class="step-card__number">
                                     04
                                 </span>
-
-                                <div class="step-card__icon">
-                                    <i class="fa-solid fa-chart-simple"></i>
-                                </div>
 
                                 <h3>
                                     Acompanhe
@@ -334,13 +339,13 @@
 
                             <article class="step-card" data-reveal data-stagger>
 
-                                <span class="step-card__number">
-                                    05
-                                </span>
-
                                 <div class="step-card__icon">
                                     <i class="fa-solid fa-gift"></i>
                                 </div>
+
+                                <span class="step-card__number">
+                                    05
+                                </span>
 
                                 <h3>
                                     Resgate
@@ -398,41 +403,60 @@
 
                 <div class="section-heading progress-board__heading">
 
-                    <span class="section-heading__eyebrow">
-                        Acompanhe sua evolução
-                    </span>
-
                     <h2>
                         Seu progresso no
                         <span>Invite Shark</span>
                     </h2>
 
                     <p>
-                        Veja quantas pessoas você já convidou, o avanço
-                        até a próxima recompensa e o status das missões.
+                        Veja suas indicações, qualificações e o avanço
+                        até a próxima recompensa em um só lugar.
                     </p>
 
                 </div>
 
-                <figure class="progress-board__media">
-                    <img
-                        src="images/fundo.png"
-                        alt="Painel de progresso do Invite Shark"
-                        class="progress-board__image"
-                        loading="lazy"
-                        decoding="async">
-                </figure>
+                <div class="progress-board__layout">
+
+                    <article class="progress-board__panel">
+
+                        <span class="progress-board__eyebrow">
+                            Painel Invite Shark
+                        </span>
+
+                        <h3>
+                            Acompanhe tudo em tempo real.
+                        </h3>
+
+                        <p>
+                            Veja suas indicações, qualificações, progresso
+                            nas missões e suas recompensas em um só lugar.
+                        </p>
+
+                        <a
+                            href="https://www.shiverbroker.com/"
+                            class="button button--primary progress-board__cta"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Acessar Invite Shark
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+
+                    </article>
+
+                    <figure class="progress-board__media">
+                        <img
+                            src="images/fundo/fundo.png"
+                            alt="Painel de progresso do Invite Shark"
+                            class="progress-board__image"
+                            loading="lazy"
+                            decoding="async">
+                    </figure>
+
+                </div>
 
                 <p class="progress__disclaimer">
                     Dados meramente ilustrativos.
                 </p>
-
-                <div class="section-cta">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shark
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
 
             </div>
 
@@ -468,68 +492,63 @@
                     <div class="qualified__criteria">
 
                         <div class="criteria">
+                            <span class="criteria__number" aria-hidden="true">01</span>
 
-                            <div class="criteria__icon">
-                                <i class="fa-solid fa-user-check"></i>
+                            <div class="criteria__card">
+                                <div class="criteria__icon">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </div>
+
+                                <div class="criteria__text">
+                                    <strong>Cadastro pelo seu link</strong>
+                                    <span>
+                                        O registro precisa ser atribuído
+                                        corretamente à sua indicação.
+                                    </span>
+                                </div>
                             </div>
-
-                            <div>
-                                <strong>
-                                    Cadastro pelo seu link
-                                </strong>
-
-                                <span>
-                                    O registro precisa ser atribuído
-                                    corretamente à sua indicação.
-                                </span>
-                            </div>
-
                         </div>
 
-
                         <div class="criteria">
+                            <span class="criteria__number" aria-hidden="true">02</span>
 
-                            <div class="criteria__icon">
-                                <i class="fa-solid fa-wallet"></i>
+                            <div class="criteria__card">
+                                <div class="criteria__icon">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+
+                                <div class="criteria__text">
+                                    <strong>Depósito mínimo</strong>
+                                    <span>
+                                        O indicado precisa cumprir o valor
+                                        mínimo estabelecido pelo programa.
+                                    </span>
+                                </div>
                             </div>
-
-                            <div>
-                                <strong>
-                                    Depósito mínimo
-                                </strong>
-
-                                <span>
-                                    O indicado precisa cumprir o valor
-                                    mínimo estabelecido pelo programa.
-                                </span>
-                            </div>
-
                         </div>
 
-
                         <div class="criteria">
+                            <span class="criteria__number" aria-hidden="true">03</span>
 
-                            <div class="criteria__icon">
-                                <i class="fa-solid fa-chart-candlestick"></i>
+                            <div class="criteria__card">
+                                <div class="criteria__icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+
+                                <div class="criteria__text">
+                                    <strong>Operações válidas</strong>
+                                    <span>
+                                        Também podem existir critérios
+                                        relacionados às operações realizadas.
+                                    </span>
+                                </div>
                             </div>
-
-                            <div>
-                                <strong>
-                                    Operações válidas
-                                </strong>
-
-                                <span>
-                                    Também podem existir critérios
-                                    relacionados às operações realizadas.
-                                </span>
-                            </div>
-
                         </div>
 
                     </div>
 
                     <p class="qualified__notice">
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-solid fa-star"></i>
                         As regras finais de qualificação devem ser
                         consultadas no regulamento vigente.
                     </p>
@@ -538,76 +557,14 @@
 
                 <div class="qualified__visual" data-reveal="right" data-delay="120">
 
-                    <div class="qualification-card">
-
-                        <div class="qualification-card__top">
-
-                            <span>
-                                Status da indicação
-                            </span>
-
-                            <span class="status status--pending">
-                                Em análise
-                            </span>
-
-                        </div>
-
-                        <div class="qualification-card__user">
-
-                            <div class="avatar">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-
-                            <div>
-                                <strong>
-                                    Novo indicado
-                                </strong>
-
-                                <span>
-                                    Cadastro identificado
-                                </span>
-                            </div>
-
-                        </div>
-
-                        <div class="qualification-card__steps">
-
-                            <div class="qualification-step is-complete">
-                                <span>
-                                    <i class="fa-solid fa-check"></i>
-                                </span>
-
-                                <div>
-                                    <strong>Cadastro</strong>
-                                    <small>Concluído</small>
-                                </div>
-                            </div>
-
-                            <div class="qualification-step is-active">
-                                <span>
-                                    <i class="fa-solid fa-wallet"></i>
-                                </span>
-
-                                <div>
-                                    <strong>Depósito</strong>
-                                    <small>Aguardando</small>
-                                </div>
-                            </div>
-
-                            <div class="qualification-step">
-                                <span>
-                                    <i class="fa-solid fa-chart-line"></i>
-                                </span>
-
-                                <div>
-                                    <strong>Operações</strong>
-                                    <small>Pendente</small>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <figure class="qualified__media">
+                        <img
+                            src="images/fundo/trader.jpeg"
+                            alt="Traders acompanhando o progresso no Invite Shark"
+                            class="qualified__image"
+                            loading="lazy"
+                            decoding="async">
+                    </figure>
 
                 </div>
 
@@ -632,10 +589,21 @@
                             Benefício para quem entra
                         </span>
 
-                        <h2>
-                            Seu amigo também
-                            <span>ganha.</span>
-                        </h2>
+                        <div class="benefit-card__title-row">
+                            <span class="benefit-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="26" cy="20" r="8.5" stroke="currentColor" stroke-width="3.2"/>
+                                    <path d="M10 46.5c1.8-9.2 8.1-14 16-14s14.2 4.8 16 14" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                                    <circle cx="44.5" cy="22.5" r="6.5" stroke="currentColor" stroke-width="3.2"/>
+                                    <path d="M38 46.5c1.2-6.8 5.4-10.4 11-10.4 4.2 0 7.6 1.9 9.5 5.4" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+
+                            <h2>
+                                Seu amigo também
+                                <span>ganha.</span>
+                            </h2>
+                        </div>
 
                         <p>
                             Ao entrar através do seu convite e cumprir
@@ -676,6 +644,141 @@
                         <span>
                             Risk Free
                         </span>
+
+                    </div>
+
+                </div>
+
+                <div class="section-cta" data-reveal="fade">
+                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
+                        Acessar Invite Shark
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         RANKING + RECOMPENSAS
+    ====================================================== -->
+
+        <section class="section conquest" id="conquistas">
+
+            <div class="container">
+
+                <div class="section-heading" data-reveal>
+
+                    <span class="section-heading__eyebrow">
+                        A meta que você busca
+                    </span>
+
+                    <h2>
+                        Recompensas para
+                        <span>cada conquista.</span>
+                    </h2>
+
+                    <p>
+                        As recompensas podem variar conforme o nível
+                        de elegibilidade e condições da campanha.
+                    </p>
+
+                </div>
+
+                <div class="conquest__layout" data-reveal>
+
+                    <aside class="conquest-panel conquest-panel--ranking">
+
+                        <span class="conquest-panel__eyebrow">Ranking</span>
+                        <h3>Veja quem está liderando.</h3>
+
+                        <ul class="ranking-list">
+                            <li class="ranking-list__item">
+                                <span class="ranking-list__pos">1</span>
+                                <span class="ranking-list__avatar ranking-list__avatar--gold">
+                                    <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                                </span>
+                                <span class="ranking-list__name">Gabriel M.</span>
+                                <strong class="ranking-list__score">31</strong>
+                            </li>
+                            <li class="ranking-list__item">
+                                <span class="ranking-list__pos">2</span>
+                                <span class="ranking-list__avatar ranking-list__avatar--silver">
+                                    <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                                </span>
+                                <span class="ranking-list__name">Lucas R.</span>
+                                <strong class="ranking-list__score">27</strong>
+                            </li>
+                            <li class="ranking-list__item">
+                                <span class="ranking-list__pos">3</span>
+                                <span class="ranking-list__avatar ranking-list__avatar--bronze">
+                                    <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                                </span>
+                                <span class="ranking-list__name">Rafael S.</span>
+                                <strong class="ranking-list__score">24</strong>
+                            </li>
+                            <li class="ranking-list__item ranking-list__item--you">
+                                <span class="ranking-list__pos">19</span>
+                                <span class="ranking-list__avatar ranking-list__avatar--you">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span class="ranking-list__name">Você</span>
+                                <strong class="ranking-list__score">12</strong>
+                            </li>
+                        </ul>
+
+                    </aside>
+
+                    <div class="conquest-panel conquest-panel--rewards">
+
+                        <span class="conquest-panel__eyebrow">Recompensas</span>
+                        <h3>Recompensas para cada conquista.</h3>
+
+                        <div class="conquest-rewards">
+
+                            <article class="conquest-reward conquest-reward--blue">
+                                <div class="conquest-reward__icon">
+                                    <i class="fa-solid fa-ticket"></i>
+                                </div>
+                                <h4><strong>R$500</strong> em saldo</h4>
+                                <a href="https://www.shiverbroker.com/" target="_blank" rel="noopener noreferrer">
+                                    Saiba mais
+                                </a>
+                            </article>
+
+                            <article class="conquest-reward conquest-reward--purple">
+                                <div class="conquest-reward__icon">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <h4><strong>Presente</strong> surpresa</h4>
+                                <a href="https://www.shiverbroker.com/" target="_blank" rel="noopener noreferrer">
+                                    Saiba mais
+                                </a>
+                            </article>
+
+                            <article class="conquest-reward conquest-reward--gold">
+                                <div class="conquest-reward__icon">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <h4><strong>VIP</strong> acesso exclusivo</h4>
+                                <a href="https://www.shiverbroker.com/" target="_blank" rel="noopener noreferrer">
+                                    Saiba mais
+                                </a>
+                            </article>
+
+                            <article class="conquest-reward conquest-reward--orange">
+                                <div class="conquest-reward__icon">
+                                    <i class="fa-solid fa-plane"></i>
+                                </div>
+                                <h4><strong>Viagem</strong> experiência premium</h4>
+                                <a href="https://www.shiverbroker.com/" target="_blank" rel="noopener noreferrer">
+                                    Saiba mais
+                                </a>
+                            </article>
+
+                        </div>
 
                     </div>
 
@@ -839,147 +942,6 @@
 
         </section>
 
-        <!-- =====================================================
-         RECOMPENSAS
-    ====================================================== -->
-
-        <section class="section rewards" id="recompensas">
-
-            <div class="container">
-
-                <div class="section-heading" data-reveal>
-
-                    <span class="section-heading__eyebrow">
-                        O que você pode desbloquear
-                    </span>
-
-                    <h2>
-                        Recompensas para
-                        <span>cada conquista.</span>
-                    </h2>
-
-                    <p>
-                        As recompensas podem variar conforme a missão,
-                        elegibilidade e condições da campanha.
-                    </p>
-
-                </div>
-
-                <div class="rewards-grid">
-
-                    <article class="reward-card" data-reveal="scale" data-stagger>
-
-                        <div class="reward-card__icon">
-                            <i class="fa-solid fa-wallet"></i>
-                        </div>
-
-                        <span>
-                            RECOMPENSA
-                        </span>
-
-                        <h3>
-                            Saldo
-                        </h3>
-
-                        <p>
-                            Benefícios vinculados ao cumprimento
-                            dos critérios da campanha.
-                        </p>
-
-                    </article>
-
-
-                    <article class="reward-card reward-card--featured" data-reveal="scale" data-stagger>
-
-                        <div class="reward-card__icon">
-                            <i class="fa-solid fa-box-open"></i>
-                        </div>
-
-                        <span>
-                            RECOMPENSA
-                        </span>
-
-                        <h3>
-                            Box
-                        </h3>
-
-                        <p>
-                            Um benefício que pode ser desbloqueado
-                            conforme a progressão da campanha.
-                        </p>
-
-                    </article>
-
-
-                    <article class="reward-card" data-reveal="scale" data-stagger>
-
-                        <div class="reward-card__icon">
-                            <i class="fa-solid fa-gift"></i>
-                        </div>
-
-                        <span>
-                            RECOMPENSA
-                        </span>
-
-                        <h3>
-                            Prêmio
-                        </h3>
-
-                        <p>
-                            Prêmios sujeitos às regras, disponibilidade
-                            e elegibilidade.
-                        </p>
-
-                    </article>
-
-
-                    <article class="reward-card reward-card--travel" data-reveal="scale" data-stagger>
-
-                        <div class="reward-card__icon">
-                            <i class="fa-solid fa-plane"></i>
-                        </div>
-
-                        <span>
-                            RECOMPENSA ESPECIAL
-                        </span>
-
-                        <h3>
-                            Viagem
-                        </h3>
-
-                        <p>
-                            Uma experiência especial vinculada aos
-                            critérios da campanha.
-                        </p>
-
-                    </article>
-
-                </div>
-
-                <div class="rewards-disclaimer" data-reveal="fade" data-delay="200">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    <p>
-                        A exibição de uma recompensa não significa que
-                        ela já foi concedida ou que o participante possui
-                        direito adquirido a ela. O desbloqueio depende
-                        do cumprimento das condições aplicáveis.
-                    </p>
-
-                </div>
-
-                <div class="section-cta" data-reveal="fade">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shark
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-            </div>
-
-        </section>
-
 
         <!-- =====================================================
          CONFIANÇA
@@ -1092,131 +1054,149 @@
 
                 <div class="faq-list">
 
-                    <details class="faq-item" data-reveal data-stagger>
+                    <div class="faq-list__col">
 
-                        <summary>
-                            Quem pode participar?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                        <details class="faq-item" data-reveal data-stagger>
 
-                        <div class="faq-item__body">
-                            <p>
-                                A participação depende dos critérios de
-                                elegibilidade definidos no regulamento vigente
-                                da campanha.
-                            </p>
-                        </div>
+                            <summary>
+                                Quem pode participar?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                    </details>
+                            <div class="faq-item__body">
+                                <p>
+                                    Podem participar clientes elegíveis da Shiver Broker
+                                    que estejam com cadastro ativo e dentro das regras
+                                    do regulamento vigente da campanha Invite Shark.
+                                </p>
+                            </div>
 
+                        </details>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                        <details class="faq-item" data-reveal data-stagger>
 
-                        <summary>
-                            O cadastro sozinho conta como indicação?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                            <summary>
+                                O cadastro sozinho conta como indicação?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                        <div class="faq-item__body">
-                            <p>
-                                Não necessariamente. Para uma indicação ser
-                                considerada qualificada, o indicado pode precisar
-                                cumprir requisitos adicionais de depósito e
-                                operações válidas.
-                            </p>
-                        </div>
+                            <div class="faq-item__body">
+                                <p>
+                                    Não. O simples cadastro do indicado não basta.
+                                    A indicação só é válida após depósito e operações
+                                    que atendam aos critérios de qualificação.
+                                </p>
+                            </div>
 
-                    </details>
+                        </details>
 
+                        <details class="faq-item" data-reveal data-stagger>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                            <summary>
+                                O que é um trader qualificado?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                        <summary>
-                            O que é um trader qualificado?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                            <div class="faq-item__body">
+                                <p>
+                                    É o indicado que completa todos os requisitos
+                                    da campanha — como volume mínimo e operações
+                                    válidas — dentro do prazo estabelecido.
+                                </p>
+                            </div>
 
-                        <div class="faq-item__body">
-                            <p>
-                                É o participante indicado que cumpre todos os
-                                critérios definidos para qualificação dentro
-                                do período válido da campanha.
-                            </p>
-                        </div>
+                        </details>
 
-                    </details>
+                        <details class="faq-item" data-reveal data-stagger>
 
+                            <summary>
+                                Quando minha recompensa é liberada?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                            <div class="faq-item__body">
+                                <p>
+                                    A liberação ocorre após a validação da indicação
+                                    qualificada. O prazo muda conforme o tipo de
+                                    recompensa e está descrito no regulamento.
+                                </p>
+                            </div>
 
-                        <summary>
-                            Quando minha recompensa é liberada?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                        </details>
 
-                        <div class="faq-item__body">
-                            <p>
-                                O prazo e as condições de liberação variam
-                                conforme a recompensa e devem ser consultados
-                                no regulamento.
-                            </p>
-                        </div>
+                    </div>
 
-                    </details>
+                    <div class="faq-list__col">
 
+                        <details class="faq-item" data-reveal data-stagger>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                            <summary>
+                                Como funciona o nível VIP?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                        <summary>
-                            Como funciona o nível VIP?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                            <div class="faq-item__body">
+                                <p>
+                                    O VIP é desbloqueado ao atingir metas específicas
+                                    de indicações e desempenho. Cada benefício do
+                                    nível segue as regras oficiais da campanha.
+                                </p>
+                            </div>
 
-                        <div class="faq-item__body">
-                            <p>
-                                O nível VIP depende dos critérios específicos
-                                definidos para a campanha. Consulte as regras
-                                oficiais para saber como desbloqueá-lo.
-                            </p>
-                        </div>
+                        </details>
 
-                    </details>
+                        <details class="faq-item" data-reveal data-stagger>
 
+                            <summary>
+                                Posso indicar qualquer pessoa?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                            <div class="faq-item__body">
+                                <p>
+                                    Não. Só são aceitas indicações de pessoas que
+                                    ainda não sejam clientes e que cumpram os
+                                    critérios regionais e de elegibilidade.
+                                </p>
+                            </div>
 
-                        <summary>
-                            Posso indicar qualquer pessoa?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                        </details>
 
-                        <div class="faq-item__body">
-                            <p>
-                                As indicações estão sujeitas às regras de
-                                elegibilidade, disponibilidade regional e
-                                demais condições da campanha.
-                            </p>
-                        </div>
+                        <details class="faq-item" data-reveal data-stagger>
 
-                    </details>
+                            <summary>
+                                O que acontece em caso de fraude?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
+                            <div class="faq-item__body">
+                                <p>
+                                    Fraudes, automações indevidas ou manipulação
+                                    de contas podem levar à exclusão do programa
+                                    e ao cancelamento de recompensas já acumuladas.
+                                </p>
+                            </div>
 
-                    <details class="faq-item" data-reveal data-stagger>
+                        </details>
 
-                        <summary>
-                            O que acontece em caso de fraude?
-                            <i class="fa-solid fa-plus"></i>
-                        </summary>
+                        <details class="faq-item" data-reveal data-stagger>
 
-                        <div class="faq-item__body">
-                            <p>
-                                Indicações fraudulentas, manipulação do programa
-                                ou tentativas de burlar as regras podem resultar
-                                na desqualificação e perda de benefícios.
-                            </p>
-                        </div>
+                            <summary>
+                                Onde consulto o regulamento oficial?
+                                <i class="fa-solid fa-plus"></i>
+                            </summary>
 
-                    </details>
+                            <div class="faq-item__body">
+                                <p>
+                                    O regulamento completo fica disponível na
+                                    plataforma Invite Shark e também na seção de
+                                    termos desta página, com as condições oficiais.
+                                </p>
+                            </div>
+
+                        </details>
+
+                    </div>
 
                 </div>
 
@@ -1296,24 +1276,52 @@
 
                 <div class="final-cta__glow"></div>
 
-                <span class="section-heading__eyebrow">
-                    Sua próxima conquista começa aqui
-                </span>
+                <div class="final-cta__panel">
 
-                <h2>
-                    Convide seus amigos e
-                    <span>avance para a próxima recompensa.</span>
-                </h2>
+                    <div class="final-cta__copy">
 
-                <p>
-                    Acesse o Invite Shark, compartilhe seu link
-                    e acompanhe sua evolução.
-                </p>
+                        <h2>
+                            Convide seus amigos e
+                            <span>avance para a próxima recompensa.</span>
+                        </h2>
 
-                <a href="https://www.shiverbroker.com/" class="button button--gold" target="_blank" rel="noopener noreferrer">
-                    Acessar Invite Shark
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                        <p>
+                            Mais amigos. Mais conquistas. Mais recompensas para você.
+                        </p>
+
+                        <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
+                            Acessar Invite Shark
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                    <span class="final-cta__icon" aria-hidden="true">
+                        <svg viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="finalCtaGoldBody" x1="40" y1="8" x2="40" y2="58" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#ffe28a"/>
+                                    <stop offset="55%" stop-color="#f7c84b"/>
+                                    <stop offset="100%" stop-color="#e89a2a"/>
+                                </linearGradient>
+                                <radialGradient id="finalCtaGoldGlow" cx="50%" cy="78%" r="55%">
+                                    <stop offset="0%" stop-color="#f7c84b" stop-opacity="0.55"/>
+                                    <stop offset="100%" stop-color="#f7c84b" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                            <ellipse cx="40" cy="52" rx="28" ry="12" fill="url(#finalCtaGoldGlow)"/>
+                            <circle cx="22" cy="20" r="6.2" fill="url(#finalCtaGoldBody)" opacity="0.72"/>
+                            <path d="M8.5 46.5c1.2-9.2 6.8-14.2 13.5-14.2 6.7 0 12.3 5 13.5 14.2" fill="url(#finalCtaGoldBody)" opacity="0.72"/>
+                            <circle cx="58" cy="20" r="6.2" fill="url(#finalCtaGoldBody)" opacity="0.72"/>
+                            <path d="M44.5 46.5c1.2-9.2 6.8-14.2 13.5-14.2 6.7 0 12.3 5 13.5 14.2" fill="url(#finalCtaGoldBody)" opacity="0.72"/>
+                            <circle cx="40" cy="16" r="7.8" fill="url(#finalCtaGoldBody)"/>
+                            <path d="M23.5 48c1.6-11.2 8.4-17 16.5-17s14.9 5.8 16.5 17" fill="url(#finalCtaGoldBody)"/>
+                            <circle cx="58.5" cy="49" r="9.5" fill="#f7c84b"/>
+                            <path d="M58.5 44.2v9.6M53.7 49h9.6" stroke="#171200" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+
+                </div>
 
             </div>
 
@@ -1365,7 +1373,7 @@
                 Missões
             </a>
 
-            <a href="#recompensas">
+            <a href="#conquistas">
                 Recompensas
             </a>
 
