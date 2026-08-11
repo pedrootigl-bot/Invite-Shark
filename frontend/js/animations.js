@@ -834,6 +834,35 @@
         observer.observe(track);
     }
 
+    /* -------------------------------------------------------
+       BENEFÍCIO R$500 — fade-in que repete ao entrar/voltar
+    ------------------------------------------------------- */
+    function initBenefitReplay() {
+        const section = document.querySelector("[data-benefit-replay]");
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.remove("is-in-view");
+                        void section.offsetWidth;
+                        section.classList.add("is-in-view");
+                        return;
+                    }
+
+                    section.classList.remove("is-in-view");
+                });
+            },
+            {
+                threshold: 0.28,
+                rootMargin: "0px 0px -8% 0px",
+            }
+        );
+
+        observer.observe(section);
+    }
+
     function init() {
         const cleanups = [];
 
@@ -843,6 +872,7 @@
 
         initHeroEntrance();
         initScrollReveal();
+        initBenefitReplay();
         cleanups.push(initProgressBoard());
         initMissionsLine();
 

@@ -2745,6 +2745,48 @@ REFERRED BENEFIT
     padding-top: 90px;
 }
 
+@keyframes benefit-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.benefit-card__fade {
+    opacity: 0;
+    transform: translateY(28px);
+    will-change: opacity, transform;
+}
+
+#beneficio-saldo.is-in-view .benefit-card__fade {
+    animation: benefit-fade-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#beneficio-saldo.is-in-view .benefit-card__fade--delay-1 {
+    animation-delay: 0.12s;
+}
+
+#beneficio-saldo.is-in-view .benefit-card__fade--delay-2 {
+    animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .benefit-card__fade {
+        opacity: 1;
+        transform: none;
+        will-change: auto;
+    }
+
+    #beneficio-saldo.is-in-view .benefit-card__fade {
+        animation: none;
+    }
+}
+
 .benefit-card {
     position: relative;
 
