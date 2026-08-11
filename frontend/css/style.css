@@ -1439,6 +1439,8 @@ HOW IT WORKS
 ========================================================= */
 
 .how-it-works {
+    overflow-x: clip;
+
     background:
         linear-gradient(180deg,
             transparent,
@@ -1446,53 +1448,96 @@ HOW IT WORKS
             transparent);
 }
 
-.steps {
+.steps-carousel {
+    --steps-gap: 16px;
+    --steps-visible: 3;
+
+    position: relative;
+
     display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 22px;
 
+    width: 100%;
+    max-width: 100%;
+}
 
-    grid-template-columns:
-        repeat(5, minmax(0, 1fr));
+.steps-carousel__viewport {
+    grid-column: 2;
+    grid-row: 1;
 
-    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 
+    overflow: hidden;
+    touch-action: pan-y;
+}
 
+.steps-carousel__track,
+.steps {
+    display: flex;
+    align-items: stretch;
+
+    gap: var(--steps-gap);
+
+    width: 100%;
+    margin: 0;
+
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: transform;
+}
+
+.steps-carousel.is-dragging .steps-carousel__track {
+    transition: none;
 }
 
 .step-card {
     position: relative;
 
+    flex: 0 0
+        calc((100% - (var(--steps-visible) - 1) * var(--steps-gap)) / var(--steps-visible));
 
-    padding: 28px 22px;
+    width:
+        calc((100% - (var(--steps-visible) - 1) * var(--steps-gap)) / var(--steps-visible));
+    max-width:
+        calc((100% - (var(--steps-visible) - 1) * var(--steps-gap)) / var(--steps-visible));
 
     min-height: 250px;
+    padding: 28px 22px;
 
     background: rgba(255, 255, 255, 0.025);
 
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
 
     transition:
         transform 0.25s ease,
         border-color 0.25s ease,
         background 0.25s ease;
-
-
 }
 
-.step-card:hover {
+/* Reveal do scroll não deve esconder cards fora da “página” do carrossel */
+.steps-carousel .step-card[data-reveal] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.step-card:hover,
+.steps-carousel .step-card[data-reveal]:hover {
     transform: translateY(-7px);
 
     border-color: var(--border-blue);
 
     background: rgba(22, 119, 255, 0.045);
-
-
 }
 
 .step-card__number {
     position: absolute;
-
 
     top: 18px;
     right: 18px;
@@ -1501,14 +1546,11 @@ HOW IT WORKS
 
     font-size: 11px;
     font-weight: 700;
-
-
 }
 
 .step-card__icon {
     width: 48px;
     height: 48px;
-
 
     display: flex;
     align-items: center;
@@ -1523,26 +1565,125 @@ HOW IT WORKS
     background: rgba(22, 119, 255, 0.10);
 
     font-size: 18px;
-
 }
 
 .step-card h3 {
     margin-bottom: 10px;
 
-
     font-size: 17px;
-
-
 }
 
 .step-card p {
     color: var(--text-muted);
 
-
     font-size: 12px;
-
     line-height: 1.7;
+}
 
+.steps-carousel__nav {
+    grid-row: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    color: var(--white);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.steps-carousel__nav--prev {
+    grid-column: 1;
+}
+
+.steps-carousel__nav--next {
+    grid-column: 3;
+}
+
+.steps-carousel__nav:hover:not(:disabled) {
+    color: var(--blue-light);
+
+    background: rgba(22, 119, 255, 0.12);
+
+    border-color: var(--border-blue);
+
+    transform: translateY(-1px);
+}
+
+.steps-carousel__nav:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.steps-carousel__dots {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.steps-carousel__dot {
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 0;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.steps-carousel__dot.is-active {
+    width: 22px;
+
+    background: var(--blue-light);
+}
+
+.steps-carousel__dot:focus-visible,
+.steps-carousel__nav:focus-visible {
+    outline: 2px solid var(--blue-light);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .steps-carousel__track,
+    .steps,
+    .steps-carousel__dot,
+    .steps-carousel__nav {
+        transition: none !important;
+    }
 
 }
 
@@ -1574,13 +1715,40 @@ PROGRESS BOARD
     transform: translateY(0);
 }
 
-.progress-board__grid {
-    display: grid;
+.progress-board__media {
+    margin: 0;
 
-    grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
-    grid-template-rows: auto auto;
+    overflow: hidden;
 
-    gap: 16px;
+    border-radius: var(--radius-lg);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    box-shadow: var(--shadow-card);
+
+    opacity: 0;
+    transform: translateY(36px) scale(0.98);
+
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.progress-board.is-active .progress-board__media {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.progress-board__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-width: 100%;
+
+    object-fit: cover;
+    object-position: center top;
 }
 
 .progress-panel {
@@ -1883,12 +2051,14 @@ PROGRESS BOARD
 @media (prefers-reduced-motion: reduce) {
 
     .progress-board__heading,
+    .progress-board__media,
     .progress-panel,
     .progress-bar__fill {
         transition: none !important;
     }
 
     .progress-board .progress-board__heading,
+    .progress-board .progress-board__media,
     .progress-board .progress-panel {
         opacity: 1;
         transform: none;

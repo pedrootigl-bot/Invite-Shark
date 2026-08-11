@@ -458,8 +458,8 @@
                 });
             },
             {
-                threshold: 0.18,
-                rootMargin: "0px 0px -8% 0px",
+                threshold: 0.08,
+                rootMargin: "40px 0px -6% 0px",
             }
         );
 
@@ -502,30 +502,45 @@
         const invited = Number(section.dataset.invited || 0);
         const nextGoal = Number(section.dataset.nextGoal || 5);
         const nextLabel = section.querySelector("[data-progress-next-label]");
+        const fills = section.querySelectorAll("[data-progress-fill]");
+        const counts = section.querySelectorAll("[data-progress-count]");
 
         if (nextLabel) {
             nextLabel.textContent = `${invited} / ${nextGoal} indicados`;
         }
 
-        section.classList.add("is-active");
+        // Reinicia a animação de entrada (sair → voltar).
+        section.classList.remove("is-active");
 
-        const fills = section.querySelectorAll("[data-progress-fill]");
         fills.forEach((fill) => {
-            const current = Number(fill.dataset.current || invited || 0);
-            const goal = Number(fill.dataset.goal || nextGoal || 1);
-            const percent = clampPercent(current, goal);
-
+            fill.style.transition = "none";
             fill.style.width = "0%";
-
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    fill.style.width = `${percent}%`;
-                });
-            });
         });
 
-        section.querySelectorAll("[data-progress-count]").forEach((node) => {
-            animateCount(node, node.dataset.countTo || 0);
+        counts.forEach((node) => {
+            node.textContent = "0";
+        });
+
+        void section.offsetWidth;
+
+        fills.forEach((fill) => {
+            fill.style.transition = "";
+        });
+
+        requestAnimationFrame(() => {
+            section.classList.add("is-active");
+
+            requestAnimationFrame(() => {
+                fills.forEach((fill) => {
+                    const current = Number(fill.dataset.current || invited || 0);
+                    const goal = Number(fill.dataset.goal || nextGoal || 1);
+                    fill.style.width = `${clampPercent(current, goal)}%`;
+                });
+
+                counts.forEach((node) => {
+                    animateCount(node, node.dataset.countTo || 0);
+                });
+            });
         });
     }
 
@@ -533,7 +548,10 @@
         section.classList.remove("is-active");
 
         section.querySelectorAll("[data-progress-fill]").forEach((fill) => {
+            fill.style.transition = "none";
             fill.style.width = "0%";
+            void fill.offsetWidth;
+            fill.style.transition = "";
         });
 
         section.querySelectorAll("[data-progress-count]").forEach((node) => {
@@ -550,19 +568,33 @@
             return;
         }
 
+        let isActive = false;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        activateProgressSection(section);
-                    } else {
+                    // threshold baixo: no mobile a seção empilhada é mais alta
+                    // que a viewport, então ratios altos nunca disparam.
+                    const entered =
+                        entry.isIntersecting && entry.intersectionRatio > 0;
+
+                    if (entered) {
+                        if (!isActive) {
+                            isActive = true;
+                            activateProgressSection(section);
+                        }
+                        return;
+                    }
+
+                    if (isActive) {
+                        isActive = false;
                         deactivateProgressSection(section);
                     }
                 });
             },
             {
-                threshold: 0.28,
-                rootMargin: "0px 0px -10% 0px",
+                threshold: [0, 0.02, 0.08, 0.15],
+                rootMargin: "60px 0px -6% 0px",
             }
         );
 
@@ -601,8 +633,8 @@
                 });
             },
             {
-                threshold: 0.35,
-                rootMargin: "0px 0px -8% 0px",
+                threshold: [0, 0.08, 0.2],
+                rootMargin: "80px 0px -4% 0px",
             }
         );
 
