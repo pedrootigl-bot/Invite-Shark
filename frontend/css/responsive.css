@@ -308,6 +308,15 @@ RESPONSIVE — TABLET
         grid-column: 1;
     }
 
+    .section-cta {
+        margin-top: 32px;
+    }
+
+    .section-cta .button {
+        width: 100%;
+        min-width: 0;
+    }
+
     /* =====================================================
        HERO
        ===================================================== */

@@ -600,6 +600,18 @@ BUTTONS
     transform: translateY(-2px);
 }
 
+.section-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+.section-cta .button {
+    min-width: min(100%, 280px);
+}
+
 .button--primary {
     color: var(--white);
 
@@ -1737,6 +1749,20 @@ PROGRESS BOARD
 .progress-board.is-active .progress-board__media {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+
+.progress-board .section-cta {
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.progress-board.is-active .section-cta {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .progress-board__image {
