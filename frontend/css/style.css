@@ -255,10 +255,15 @@ VARIABLES
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.07);
 
-    /* Tiers only — not for buttons/links */
+    /* Tiers only — not for UI chrome */
     --shark-blue: #5b9bd5;
     --hammerhead-silver: #b8c4d0;
     --apex-green: #5cc9b0;
+
+    /* CTAs — azul elétrico da referência */
+    --cta-blue: #1677ff;
+    --cta-blue-light: #2f8cff;
+    --cta-blue-dark: #0d5fd8;
 
     /* Compatibility aliases (existing components) */
     --bg-deep: var(--ocean-deep);
@@ -533,32 +538,42 @@ body.menu-open {
     border-radius: 100px;
     border: none;
 
-    color: var(--black);
-    background: var(--white);
+    color: var(--white);
+    background:
+        linear-gradient(135deg,
+            var(--cta-blue-light),
+            var(--cta-blue));
 
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.04em;
 
-    box-shadow: none;
+    box-shadow:
+        0 8px 24px rgba(22, 119, 255, 0.35),
+        0 0 20px rgba(22, 119, 255, 0.18);
     text-decoration: none;
 
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
+        filter 0.3s ease,
         opacity 0.3s ease;
 }
 
 .button--pill:hover,
 .header__cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 12px 30px rgba(22, 119, 255, 0.45),
+        0 0 28px rgba(22, 119, 255, 0.25);
+    filter: brightness(1.04);
 }
 
 .button--pill:active,
 .header__cta:active {
     transform: translateY(0);
-    opacity: 0.92;
+    opacity: 0.96;
+    filter: brightness(0.98);
 }
 
 /* =========================================================
@@ -606,30 +621,35 @@ BUTTONS
 
 .section-cta .button {
     min-width: min(100%, 280px);
-    border-radius: 12px;
+    border-radius: 100px;
     padding: 1rem 3.2rem;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.04em;
 }
 
-/* Primário — ouro fosco, texto preto */
+/* Primário — azul elétrico (navbar, hero, fim de section) */
 .button--primary,
 .button--gold {
-    color: var(--black);
+    color: var(--white);
 
     background:
         linear-gradient(135deg,
-            var(--gold-dark),
-            var(--gold),
-            var(--gold-light));
+            var(--cta-blue-light),
+            var(--cta-blue) 55%,
+            var(--cta-blue-dark));
 
-    box-shadow: 0 10px 28px rgba(201, 168, 76, 0.18);
+    box-shadow:
+        0 10px 28px rgba(22, 119, 255, 0.35),
+        0 0 22px rgba(22, 119, 255, 0.18);
 }
 
 .button--primary:hover,
 .button--gold:hover {
-    box-shadow: 0 16px 36px rgba(201, 168, 76, 0.28);
+    box-shadow:
+        0 16px 36px rgba(22, 119, 255, 0.48),
+        0 0 30px rgba(22, 119, 255, 0.28);
+    filter: brightness(1.04);
 }
 
 /* Secundário — ghost */
@@ -650,24 +670,32 @@ BUTTONS
     background: transparent;
 }
 
-/* CTA de seção — vidro azulado, raio 12px */
+/* CTA de seção — mesmo azul elétrico */
 .section-cta .button--primary,
 .section-cta .button--gold {
     color: var(--white);
 
-    background: rgba(20, 40, 80, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background:
+        linear-gradient(135deg,
+            var(--cta-blue-light),
+            var(--cta-blue) 55%,
+            var(--cta-blue-dark));
 
-    border: 1px solid rgba(80, 140, 220, 0.2);
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 
-    box-shadow: none;
+    box-shadow:
+        0 12px 32px rgba(22, 119, 255, 0.38),
+        0 0 24px rgba(22, 119, 255, 0.2);
 }
 
 .section-cta .button--primary:hover,
 .section-cta .button--gold:hover {
-    border-color: rgba(80, 140, 220, 0.35);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+    border-color: transparent;
+    box-shadow:
+        0 16px 40px rgba(22, 119, 255, 0.5),
+        0 0 32px rgba(22, 119, 255, 0.28);
 }
 
 /* =========================================================
@@ -843,7 +871,7 @@ HERO
 }
 
 .hero__eyebrow i {
-    color: var(--gold);
+    color: var(--cta-blue-light);
 }
 
 .hero__title {
@@ -1154,7 +1182,6 @@ ENTRANCE + SCROLL REVEAL
     transform: translateY(0) translateX(0) scale(1);
 }
 
-.criteria,
 .feature-list li,
 .rewards-disclaimer {
     opacity: 0;
@@ -1165,9 +1192,19 @@ ENTRANCE + SCROLL REVEAL
     transition-delay: var(--reveal-delay, 0ms);
 }
 
-.is-visible .criteria,
 .is-visible .feature-list li,
 .rewards-disclaimer.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Critérios do trader: fade-in individual (um por vez) */
+.criteria[data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+.criteria[data-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1177,7 +1214,6 @@ ENTRANCE + SCROLL REVEAL
     [data-animate="rise"],
     [data-animate="scale-in"],
     [data-reveal],
-    .criteria,
     .feature-list li,
     .rewards-disclaimer {
         opacity: 1;
@@ -1522,13 +1558,14 @@ HOW IT WORKS
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 
     transition:
-        transform 0.3s ease,
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
         border-color 0.3s ease,
         box-shadow 0.3s ease,
         background 0.4s ease;
 }
 
-/* Seta conectora entre cards (como na referência) */
+/* Seta conectora entre cards */
 .step-card:not(:last-child)::before {
     content: "";
 
@@ -1569,14 +1606,7 @@ HOW IT WORKS
     pointer-events: none;
 }
 
-/* Reveal do scroll não deve esconder cards fora da “página” do carrossel */
-.steps-carousel .step-card[data-reveal] {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.step-card:hover,
-.steps-carousel .step-card[data-reveal]:hover {
+.step-card[data-reveal].is-visible:hover {
     transform: translateY(-6px);
 
     border-color: var(--border-hover);
@@ -1751,7 +1781,8 @@ PROGRESS BOARD
 .progress-board {
     position: relative;
 
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
 
     background:
         radial-gradient(circle at 70% 45%,
@@ -1777,14 +1808,30 @@ PROGRESS BOARD
     transform: translateY(0);
 }
 
+.progress-board__stage {
+    --progress-scale: 0.6;
+    --progress-y: 10vh;
+    --progress-opacity: 0.55;
+    --progress-glow: 0.12;
+
+    position: relative;
+
+    /* Trilha curta: expansão completa com pouco scroll */
+    height: 130vh;
+    margin: 0 0 24px;
+
+    pointer-events: none;
+}
+
 .progress-board__layout {
     display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.2fr);
-    align-items: center;
-    gap: 36px 48px;
+    grid-template-columns: minmax(0, 720px);
+    justify-content: center;
+    align-items: stretch;
+    gap: 0;
 
     opacity: 0;
-    transform: translateY(36px) scale(0.98);
+    transform: translateY(36px);
 
     transition:
         opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
@@ -1793,7 +1840,7 @@ PROGRESS BOARD
 
 .progress-board.is-active .progress-board__layout {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
 .progress-board__panel {
@@ -1801,7 +1848,8 @@ PROGRESS BOARD
     flex-direction: column;
     align-items: flex-start;
 
-    min-height: 320px;
+    width: 100%;
+    min-height: 280px;
     padding: 36px 32px;
     gap: 0;
 
@@ -1873,7 +1921,8 @@ a.button.progress-board__cta {
     white-space: nowrap;
 
     box-shadow:
-        0 12px 32px rgba(201, 168, 76, 0.35);
+        0 12px 32px rgba(22, 119, 255, 0.4),
+        0 0 22px rgba(22, 119, 255, 0.2);
 }
 
 a.button.progress-board__cta i {
@@ -1885,23 +1934,103 @@ a.button.progress-board__cta i {
 }
 
 .progress-board__media {
-    position: relative;
+    position: sticky;
+    /* Enquadramento estável abaixo do header */
+    top: calc(var(--header-height) + 3vh);
 
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
     min-width: 0;
+    width: min(100%, 1100px);
+    /* Menor que a viewport → sobra mais “trilha” de sticky no stage */
+    height: min(70svh, 580px);
+
+    padding-bottom: 0;
+
+    pointer-events: none;
+}
+
+.progress-board__media::before {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    z-index: 0;
+
+    width: min(78%, 620px);
+    height: min(42%, 240px);
+
+    transform: translate(-50%, -50%) scale(var(--progress-scale));
+
+    background:
+        radial-gradient(ellipse at center,
+            rgba(201, 168, 76, var(--progress-glow)),
+            transparent 72%);
+
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.progress-board__duo {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+
+    width: 100%;
+    max-width: 1040px;
+
+    opacity: var(--progress-opacity);
+
+    transform: translate3d(0, var(--progress-y), 0) scale(var(--progress-scale));
+    transform-origin: center center;
+    will-change: transform, opacity;
 }
 
 .progress-board__image {
     display: block;
 
-    width: 100%;
+    width: min(68%, 720px);
     height: auto;
-    max-width: 100%;
+    max-width: 68%;
+    max-height: min(56svh, 480px);
 
     object-fit: contain;
-    object-position: center center;
+    object-position: right bottom;
 
-    filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.35));
+    filter:
+        drop-shadow(0 18px 40px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 0 28px rgba(201, 168, 76, calc(var(--progress-glow) * 0.9)));
+}
+
+.progress-board__phone {
+    display: block;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 2;
+
+    width: min(28%, 240px);
+    max-width: 240px;
+    height: auto;
+    max-height: min(58svh, 520px);
+
+    /* Colado no limite direito do painel */
+    margin-left: clamp(-28px, -3.2vw, -12px);
+    margin-bottom: clamp(2px, 0.8vh, 10px);
+
+    object-fit: contain;
+    object-position: left bottom;
+
+    filter:
+        drop-shadow(0 22px 36px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 0 20px rgba(201, 168, 76, calc(var(--progress-glow) * 0.55)));
 }
 
 .progress-panel {
@@ -2208,6 +2337,32 @@ a.button.progress-board__cta i {
     .progress-panel,
     .progress-bar__fill {
         transition: none !important;
+    }
+
+    .progress-board__stage {
+        --progress-scale: 1;
+        --progress-y: 0px;
+        --progress-opacity: 1;
+        --progress-glow: 0.2;
+        height: auto;
+        margin-bottom: 36px;
+    }
+
+    .progress-board__media {
+        position: relative;
+        top: auto;
+        height: auto;
+    }
+
+    .progress-board__duo {
+        will-change: auto;
+        opacity: 1;
+        transform: none;
+    }
+
+    .progress-board__image,
+    .progress-board__phone {
+        max-height: none;
     }
 
     .progress-board .progress-board__heading,
@@ -2637,11 +2792,11 @@ REFERRED BENEFIT
     height: clamp(56px, 7vw, 78px);
     flex-shrink: 0;
 
-    color: var(--blue-light);
+    color: var(--cta-blue-light);
 
     filter:
-        drop-shadow(0 0 6px rgba(201, 168, 76, 0.85))
-        drop-shadow(0 0 18px rgba(201, 168, 76, 0.55));
+        drop-shadow(0 0 6px rgba(47, 140, 255, 0.85))
+        drop-shadow(0 0 18px rgba(22, 119, 255, 0.55));
 }
 
 .benefit-card__icon svg {

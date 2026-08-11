@@ -284,14 +284,6 @@ function initMobileMenu() {
         );
     }
 
-    function initNestedReveals() {
-        document.querySelectorAll(".qualified__criteria").forEach((group) => {
-            Array.from(group.children).forEach((child, index) => {
-                child.style.setProperty("--reveal-delay", `${120 + index * 90}ms`);
-            });
-        });
-    }
-
     function initStepsCarousel() {
         const root = document.querySelector("[data-steps-carousel]");
         if (!root) return;
@@ -544,7 +536,6 @@ function initMobileMenu() {
         initMobileMenu();
         initCopyLink();
         initFaqAccordion();
-        initNestedReveals();
         initStepsCarousel();
     }
 

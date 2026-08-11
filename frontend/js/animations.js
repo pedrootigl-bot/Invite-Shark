@@ -427,8 +427,14 @@
         });
 
         staggerGroups.forEach((group) => {
+            const step = group[0]?.closest(".steps-carousel")
+                ? 220
+                : group[0]?.closest(".qualified__criteria")
+                  ? 240
+                  : 100;
+
             group.forEach((node, index) => {
-                node.style.setProperty("--reveal-delay", `${index * 80}ms`);
+                node.style.setProperty("--reveal-delay", `${index * step}ms`);
             });
         });
 
@@ -559,13 +565,193 @@
         });
     }
 
+    function lerp(start, end, t) {
+        return start + (end - start) * t;
+    }
+
+    function clamp01(value) {
+        return Math.min(1, Math.max(0, value));
+    }
+
+    // Cresce com presença no meio do scroll e assenta no fim
+    function easeProgressImage(t) {
+        const x = clamp01(t);
+        return x * x * (3 - 2 * x);
+    }
+
+    function getProgressScaleRange() {
+        const mobile = window.matchMedia("(max-width: 900px)").matches;
+        if (mobile) {
+            return {
+                scaleFrom: 0.68,
+                scaleTo: 1.02,
+                yFrom: 8,
+                yTo: 0,
+                opacityFrom: 0.6,
+                opacityTo: 1,
+                glowFrom: 0.08,
+                glowTo: 0.28,
+                yUnit: "vh",
+            };
+        }
+        return {
+            scaleFrom: 0.6,
+            scaleTo: 1.06,
+            yFrom: 10,
+            yTo: 0,
+            opacityFrom: 0.55,
+            opacityTo: 1,
+            glowFrom: 0.1,
+            glowTo: 0.32,
+            yUnit: "vh",
+        };
+    }
+
+    function getStickyTopOffset() {
+        const raw = getComputedStyle(document.documentElement)
+            .getPropertyValue("--header-height")
+            .trim();
+        const header = Number.parseFloat(raw) || 120;
+        const viewH = window.innerHeight || 1;
+        return header + viewH * 0.03;
+    }
+
+    function getStageScrollProgress(stage) {
+        const media = stage.querySelector(".progress-board__media");
+        const stageRect = stage.getBoundingClientRect();
+        const mediaHeight = media
+            ? media.getBoundingClientRect().height
+            : (window.innerHeight || 1) * 0.68;
+
+        // Distância real em que o sticky permanece ativo:
+        // stageHeight - mediaHeight
+        const stickyTravel = Math.max(stageRect.height - mediaHeight, 1);
+        const stickyTop = getStickyTopOffset();
+
+        // 0 = acabou de grudar; 1 = prestes a soltar
+        const traveled = stickyTop - stageRect.top;
+
+        // Expansão rápida: completa com bem menos scroll na trilha sticky
+        const completeAt = stickyTravel * 0.38;
+        return clamp01(traveled / Math.max(completeAt, 1));
+    }
+
+    function applyProgressImageTransform(stage, progress) {
+        const eased = easeProgressImage(progress);
+        const range = getProgressScaleRange();
+        const y = lerp(range.yFrom, range.yTo, eased);
+
+        stage.style.setProperty(
+            "--progress-scale",
+            lerp(range.scaleFrom, range.scaleTo, eased).toFixed(4)
+        );
+        stage.style.setProperty(
+            "--progress-y",
+            `${y.toFixed(2)}${range.yUnit}`
+        );
+        stage.style.setProperty(
+            "--progress-opacity",
+            lerp(range.opacityFrom, range.opacityTo, eased).toFixed(3)
+        );
+        stage.style.setProperty(
+            "--progress-glow",
+            lerp(range.glowFrom, range.glowTo, eased).toFixed(3)
+        );
+    }
+
+    function initProgressImageScroll(section) {
+        const stage = section.querySelector("[data-progress-stage]");
+        const image = section.querySelector("[data-progress-image]");
+        if (!stage || !image) return () => {};
+
+        if (prefersReducedMotion) {
+            stage.style.setProperty("--progress-scale", "1");
+            stage.style.setProperty("--progress-y", "0px");
+            stage.style.setProperty("--progress-opacity", "1");
+            stage.style.setProperty("--progress-glow", "0.2");
+            return () => {};
+        }
+
+        let raf = 0;
+        let active = false;
+        let currentProgress = getStageScrollProgress(stage);
+        let targetProgress = currentProgress;
+
+        const tick = () => {
+            raf = 0;
+            const delta = targetProgress - currentProgress;
+            // Suaviza o scroll do mouse/trackpad sem atrasar demais
+            currentProgress += delta * 0.16;
+
+            if (Math.abs(delta) < 0.001) {
+                currentProgress = targetProgress;
+            }
+
+            applyProgressImageTransform(stage, currentProgress);
+
+            if (Math.abs(targetProgress - currentProgress) >= 0.001) {
+                raf = requestAnimationFrame(tick);
+            }
+        };
+
+        const requestUpdate = () => {
+            targetProgress = getStageScrollProgress(stage);
+            if (!raf) {
+                raf = requestAnimationFrame(tick);
+            }
+        };
+
+        const onScroll = () => {
+            if (!active) return;
+            requestUpdate();
+        };
+
+        const onResize = () => {
+            currentProgress = getStageScrollProgress(stage);
+            targetProgress = currentProgress;
+            applyProgressImageTransform(stage, currentProgress);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    active = entry.isIntersecting;
+                    if (active) {
+                        requestUpdate();
+                        return;
+                    }
+                    targetProgress = getStageScrollProgress(stage) < 0.5 ? 0 : 1;
+                    requestUpdate();
+                });
+            },
+            {
+                threshold: [0, 0.05, 0.15, 0.35, 0.6, 1],
+                rootMargin: "25% 0px 25% 0px",
+            }
+        );
+
+        observer.observe(stage);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onResize, { passive: true });
+        applyProgressImageTransform(stage, currentProgress);
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onResize);
+            if (raf) cancelAnimationFrame(raf);
+        };
+    }
+
     function initProgressBoard() {
         const section = document.querySelector("[data-progress-section]");
         if (!section) return;
 
+        const cleanupImageScroll = initProgressImageScroll(section);
+
         if (prefersReducedMotion || !("IntersectionObserver" in window)) {
             activateProgressSection(section);
-            return;
+            return cleanupImageScroll;
         }
 
         let isActive = false;
@@ -599,6 +785,13 @@
         );
 
         observer.observe(section);
+
+        return () => {
+            observer.disconnect();
+            if (typeof cleanupImageScroll === "function") {
+                cleanupImageScroll();
+            }
+        };
     }
 
     function initMissionsLine() {
@@ -650,7 +843,7 @@
 
         initHeroEntrance();
         initScrollReveal();
-        initProgressBoard();
+        cleanups.push(initProgressBoard());
         initMissionsLine();
 
         let resizeTimer = 0;
@@ -666,6 +859,7 @@
                     initStarburst(document.getElementById("hero-starburst"))
                 );
                 cleanups.push(initPixelOrb(document.getElementById("hero-pixel")));
+                cleanups.push(initProgressBoard());
             }, 180);
         };
 

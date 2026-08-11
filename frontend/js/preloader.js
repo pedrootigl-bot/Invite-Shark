@@ -48,15 +48,15 @@
 
         window.setTimeout(() => {
             preloader.classList.add("is-curve");
-        }, 1400);
+        }, 1800);
 
-        window.setTimeout(exitPreloader, 2600);
+        window.setTimeout(exitPreloader, 3400);
     }
 
     if (document.fonts && document.fonts.ready) {
         Promise.race([
             document.fonts.ready,
-            new Promise((resolve) => window.setTimeout(resolve, 1200)),
+            new Promise((resolve) => window.setTimeout(resolve, 1400)),
         ]).then(runPreloader);
     } else {
         window.setTimeout(runPreloader, 80);

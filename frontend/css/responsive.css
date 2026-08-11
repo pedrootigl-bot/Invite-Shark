@@ -41,12 +41,12 @@ RESPONSIVE — LARGE LAPTOP
         --steps-gap: 36px;
     }
 
-    .progress-board__layout {
-        gap: 28px 36px;
+    .progress-board__stage {
+        height: 125vh;
     }
 
     .progress-board__panel {
-        min-height: 300px;
+        min-height: 260px;
         padding: 30px 26px;
     }
 
@@ -170,9 +170,43 @@ RESPONSIVE — TABLET
         font-size: 18px;
     }
 
+    .progress-board__stage {
+        --progress-scale: 0.68;
+        --progress-y: 8vh;
+        --progress-opacity: 0.6;
+        height: 120vh;
+        margin-bottom: 24px;
+    }
+
+    .progress-board__media {
+        top: calc(var(--header-height) + 2vh);
+        width: min(100%, 820px);
+        height: min(60svh, 440px);
+        padding-bottom: 0;
+        align-items: center;
+    }
+
+    .progress-board__duo {
+        gap: 0;
+        align-items: flex-end;
+    }
+
+    .progress-board__image {
+        width: min(64%, 520px);
+        max-width: 64%;
+        max-height: min(48svh, 360px);
+        object-position: right bottom;
+    }
+
+    .progress-board__phone {
+        width: min(30%, 190px);
+        max-width: 190px;
+        max-height: min(50svh, 380px);
+        margin-left: -18px;
+    }
+
     .progress-board__layout {
         grid-template-columns: 1fr;
-        gap: 28px;
     }
 
     .progress-board__panel {
@@ -381,7 +415,7 @@ RESPONSIVE — TABLET
         display: grid;
         grid-template-columns: 1fr;
 
-        gap: clamp(28px, 6vw, 42px);
+        gap: clamp(20px, 5vw, 32px);
 
         align-content: center;
         justify-items: center;
@@ -389,29 +423,45 @@ RESPONSIVE — TABLET
         text-align: center;
     }
 
+    /* Libera os filhos para reordenar: texto → imagem → botões */
     .hero__content {
-        width: 100%;
-        max-width: 560px;
-
-        margin-inline: auto;
-
-        text-align: center;
+        display: contents;
     }
 
     .hero__eyebrow {
+        order: 1;
+
         display: flex;
         justify-content: center;
         align-items: center;
 
         flex-wrap: wrap;
+
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .hero__title {
+        order: 2;
+        width: 100%;
+        max-width: 560px;
     }
 
     .hero__description {
+        order: 3;
+
+        width: 100%;
         max-width: 520px;
         margin-inline: auto;
     }
 
+    .hero__visual {
+        order: 4;
+    }
+
     .hero__actions {
+        order: 5;
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -419,7 +469,9 @@ RESPONSIVE — TABLET
         flex-wrap: wrap;
         gap: 12px;
 
-        margin-top: 24px;
+        width: 100%;
+        max-width: 560px;
+        margin-top: 4px;
     }
 
     /* =====================================================
@@ -842,9 +894,12 @@ RESPONSIVE — TABLET
 
         border-radius: 999px !important;
 
-        color: var(--black) !important;
+        color: var(--white) !important;
 
-        background: var(--white) !important;
+        background:
+            linear-gradient(135deg,
+                var(--cta-blue-light),
+                var(--cta-blue)) !important;
 
         font-size: 15px !important;
         font-weight: 700 !important;
@@ -852,22 +907,28 @@ RESPONSIVE — TABLET
         letter-spacing: 0 !important;
 
         box-shadow:
-            0 10px 30px rgba(0, 0, 0, 0.2);
+            0 10px 30px rgba(22, 119, 255, 0.4),
+            0 0 20px rgba(22, 119, 255, 0.2);
 
         transition:
             transform 0.25s ease,
-            box-shadow 0.25s ease;
+            box-shadow 0.25s ease,
+            filter 0.25s ease;
     }
 
     .nav-mobile__cta:hover {
-        color: var(--black) !important;
+        color: var(--white) !important;
 
-        background: var(--white) !important;
+        background:
+            linear-gradient(135deg,
+                var(--cta-blue-light),
+                var(--cta-blue)) !important;
 
         transform: translateY(-2px);
 
         box-shadow:
-            0 14px 35px rgba(0, 0, 0, 0.3);
+            0 14px 35px rgba(22, 119, 255, 0.5),
+            0 0 28px rgba(22, 119, 255, 0.28);
     }
 
     .nav-mobile__cta .nav__prefix {
@@ -1051,14 +1112,7 @@ RESPONSIVE — MOBILE
     }
 
     .hero__content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 520px;
-        margin-inline: auto;
-        text-align: center;
+        display: contents;
     }
 
     .hero__title {
@@ -1074,7 +1128,7 @@ RESPONSIVE — MOBILE
 
     .hero__actions {
         gap: 10px;
-        margin-top: 24px;
+        margin-top: 8px;
     }
 
     .hero__visual {
@@ -1187,9 +1241,40 @@ RESPONSIVE — MOBILE
         font-size: 18px;
     }
 
+    .progress-board__stage {
+        --progress-scale: 0.7;
+        --progress-y: 7vh;
+        --progress-opacity: 0.62;
+        height: 112vh;
+        margin-bottom: 18px;
+    }
+
+    .progress-board__media {
+        top: calc(var(--header-height) + 1.5vh);
+        height: min(54svh, 360px);
+        padding-bottom: 0;
+    }
+
+    .progress-board__duo {
+        gap: 0;
+    }
+
+    .progress-board__image {
+        width: min(62%, 420px);
+        max-width: 62%;
+        max-height: min(42svh, 300px);
+        object-position: right bottom;
+    }
+
+    .progress-board__phone {
+        width: min(32%, 150px);
+        max-width: 150px;
+        max-height: min(44svh, 320px);
+        margin-left: -14px;
+    }
+
     .progress-board__layout {
         grid-template-columns: 1fr;
-        gap: 24px;
     }
 
     .progress-board__panel {
