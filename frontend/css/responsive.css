@@ -227,7 +227,17 @@ RESPONSIVE — TABLET
         gap: 42px;
     }
 
-    .qualified__content,
+    .qualified__container {
+        grid-template-areas:
+            "intro"
+            "visual"
+            "criteria"
+            "notice";
+        row-gap: 28px;
+        column-gap: 0;
+    }
+
+    .qualified__intro,
     .dashboard-preview__content {
         max-width: none;
         text-align: left;
@@ -235,12 +245,14 @@ RESPONSIVE — TABLET
 
     .qualified__criteria {
         max-width: none;
+        margin-top: 0;
         margin-inline: 0;
     }
 
     .qualified__notice {
         justify-content: flex-start;
         max-width: none;
+        margin-top: 0 !important;
         margin-inline: 0;
     }
 

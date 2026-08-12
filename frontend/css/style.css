@@ -2391,12 +2391,19 @@ QUALIFIED
     grid-template-columns:
         minmax(0, 1.05fr) minmax(320px, 0.95fr);
 
-    align-items: center;
+    grid-template-areas:
+        "intro visual"
+        "criteria visual"
+        "notice visual";
 
-    gap: 56px;
+    align-items: start;
+
+    column-gap: 56px;
+    row-gap: 0;
 }
 
-.qualified__content {
+.qualified__intro {
+    grid-area: intro;
     max-width: 640px;
 }
 
@@ -2412,7 +2419,7 @@ QUALIFIED
     color: var(--blue-light);
 }
 
-.qualified__content > p:not(.qualified__notice) {
+.qualified__intro > p {
     margin-top: 20px;
 
     color: rgba(217, 222, 236, 0.72);
@@ -2422,11 +2429,14 @@ QUALIFIED
 }
 
 .qualified__criteria {
+    grid-area: criteria;
+
     display: grid;
 
     gap: 16px;
 
     margin-top: 32px;
+    max-width: 640px;
 }
 
 .criteria {
@@ -2507,6 +2517,8 @@ QUALIFIED
 }
 
 .qualified__notice {
+    grid-area: notice;
+
     display: flex;
 
     align-items: flex-start;
@@ -2514,6 +2526,7 @@ QUALIFIED
     gap: 9px;
 
     margin-top: 22px !important;
+    max-width: 640px;
 
     color: #f5c14b !important;
 
@@ -2528,8 +2541,11 @@ QUALIFIED
 }
 
 .qualified__visual {
+    grid-area: visual;
+
     display: flex;
     justify-content: center;
+    align-self: center;
     min-width: 0;
 }
 
