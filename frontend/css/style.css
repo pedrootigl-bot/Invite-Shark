@@ -576,6 +576,10 @@ body.menu-open {
     filter: brightness(0.98);
 }
 
+.header__cta-mobile {
+    display: none;
+}
+
 /* =========================================================
 BUTTONS
 ========================================================= */
@@ -605,6 +609,10 @@ BUTTONS
         background 0.3s ease,
         border-color 0.3s ease,
         color 0.3s ease;
+}
+
+a.button.header__cta-mobile {
+    display: none;
 }
 
 .button:hover {
@@ -1911,7 +1919,7 @@ a.button.progress-board__cta {
     width: fit-content;
     min-width: 230px;
     min-height: 48px;
-    margin-top: auto;
+    margin-top: 32px;
     padding: 0 26px;
 
     border-radius: 999px;
@@ -3278,11 +3286,19 @@ MISSIONS
 ========================================================= */
 
 .missions {
+    /* Desktop: section só aparece no mobile */
+    display: none;
+
     background:
         linear-gradient(180deg,
             transparent,
             rgba(91, 155, 213, 0.025),
             transparent);
+}
+
+.nav--desktop a[href="#missoes"],
+.footer__column a[href="#missoes"] {
+    display: none;
 }
 
 .missions-progress {
