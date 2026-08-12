@@ -1,5 +1,5 @@
 /* =========================================================
-INVITE SHARK
+INVITE Shiver
 Global Styles
 ========================================================= */
 
@@ -256,7 +256,7 @@ VARIABLES
     --glass-border: rgba(255, 255, 255, 0.07);
 
     /* Tiers only — not for UI chrome */
-    --shark-blue: #5b9bd5;
+    --Shiver-blue: #5b9bd5;
     --hammerhead-silver: #b8c4d0;
     --apex-green: #5cc9b0;
 
@@ -275,7 +275,7 @@ VARIABLES
     --blue-light: var(--gold-light);
     --blue-dark: var(--gold-dark);
 
-    --purple: var(--shark-blue);
+    --purple: var(--Shiver-blue);
     --purple-light: var(--hammerhead-silver);
 
     --text: var(--text-primary);
@@ -3234,7 +3234,7 @@ CONQUEST — RANKING + RECOMPENSAS
 }
 
 .conquest-reward--blue .conquest-reward__icon {
-    color: var(--shark-blue);
+    color: var(--Shiver-blue);
     background: rgba(91, 155, 213, 0.12);
     border: 1px solid rgba(91, 155, 213, 0.28);
     box-shadow: 0 0 22px rgba(91, 155, 213, 0.18);

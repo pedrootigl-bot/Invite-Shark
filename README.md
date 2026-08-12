@@ -1,6 +1,6 @@
-# 🦈 Invite Shark — Indique Amigo
+# 🦈 Invite Shiver — Indique Amigo
 
-Landing page oficial do **Invite Shark**, programa de indicação da **Shiver Broker**.
+Landing page oficial do **Invite Shiver**, programa de indicação da **Shiver Broker**.
 
 O projeto tem como objetivo apresentar o programa de indicação, explicar seu funcionamento, destacar seus benefícios e direcionar o usuário para a plataforma da Shiver Broker.
 
@@ -8,7 +8,7 @@ O projeto tem como objetivo apresentar o programa de indicação, explicar seu f
 
 ## 🎯 Objetivo
 
-Criar uma experiência de marketing moderna, responsiva e focada em conversão para apresentar o Invite Shark.
+Criar uma experiência de marketing moderna, responsiva e focada em conversão para apresentar o Invite Shiver.
 
 A landing page funciona exclusivamente como **página de divulgação**.
 
@@ -55,7 +55,7 @@ Shiver Broker/
 
 * Landing page responsiva
 * Hero section
-* Apresentação do Invite Shark
+* Apresentação do Invite Shiver
 * Seção "Como funciona"
 * Carrossel de cards
 * Seções de benefícios
@@ -131,12 +131,12 @@ Novas melhorias visuais, animações e ajustes de conversão podem ser adicionad
 
 **Pedro Henrique Sá Pinheiro**
 
-Desenvolvimento e implementação da landing page **Invite Shark — Indique Amigo**.
+Desenvolvimento e implementação da landing page **Invite Shiver — Indique Amigo**.
 
 ---
 
-## 🦈 Invite Shark
+## 🦈 Invite Shiver
 
 **Indique. Conecte. Ganhe.**
 
-Projeto desenvolvido para a divulgação do programa Invite Shark da Shiver Broker.
+Projeto desenvolvido para a divulgação do programa Invite Shiver da Shiver Broker.
