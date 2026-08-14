@@ -5,11 +5,25 @@
 <head>
     <meta charset="UTF-8">
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#050505">
+    <meta
+        name="description"
+        content="Invite Shiver é o programa oficial de indicação da Shiver Broker. Indique amigos elegíveis, acompanhe o progresso e desbloqueie recompensas de até R$500 em saldo, conforme regulamento.">
 
-    <title>Invite Shiver — Indique Amigos e Ganhe Recompensas</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Invite Shiver — Programa de indicação da Shiver Broker">
+    <meta
+        property="og:description"
+        content="Indique amigos para a Shiver Broker, avance nas missões e desbloqueie recompensas. Exclusivo para clientes elegíveis.">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Invite Shiver — Programa de indicação da Shiver Broker">
+    <meta
+        name="twitter:description"
+        content="Indique amigos para a Shiver Broker, avance nas missões e desbloqueie recompensas. Exclusivo para clientes elegíveis.">
+
+    <title>Invite Shiver — Programa de indicação da Shiver Broker</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo/logo.shiver-preto.png">
@@ -96,12 +110,17 @@
 
             <div class="header__actions">
 
-                <a href="#como-funciona" class="header__link">
-                    Saiba mais
+                <a href="#beneficio-saldo" class="header__link">
+                    Benefícios
                 </a>
 
-                <a href="https://www.shiverbroker.com/" class="button button--pill header__cta" target="_blank" rel="noopener noreferrer">
-                    Acessar
+                <a
+                    href="https://www.shiverbroker.com/"
+                    class="button button--pill header__cta"
+                    data-track="cta_header_desktop"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Entrar no Invite
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
 
@@ -110,9 +129,10 @@
             <a
                 href="https://www.shiverbroker.com/"
                 class="button button--pill header__cta-mobile"
+                data-track="cta_header_mobile"
                 target="_blank"
                 rel="noopener noreferrer">
-                Acessar
+                Entrar
             </a>
 
             <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menu"
@@ -159,32 +179,50 @@
 
                     <span class="hero__eyebrow" data-animate="rise" data-delay="0">
                         <i class="fa-solid fa-bolt"></i>
-                        Invite Shiver
+                        Programa oficial da Shiver Broker
                     </span>
 
                     <h1 class="hero__title" data-animate="rise" data-delay="80">
-                        Convide amigos.
-                        <span>Avance nas recompensas.</span>
+                        Indique amigos e
+                        <span>desbloqueie até R$500.</span>
                     </h1>
 
                     <p class="hero__description" data-animate="rise" data-delay="160">
-                        Compartilhe seu convite, acompanhe quem está
-                        avançando com você e desbloqueie novas
-                        recompensas conforme sua rede cresce.
+                        O Invite Shiver é o programa de indicação para
+                        clientes elegíveis da Shiver Broker. Compartilhe
+                        seu convite, acompanhe quem se qualifica e avance
+                        nas missões conforme sua rede cresce.
                     </p>
+
+                    <ul class="hero__highlights" data-animate="rise" data-delay="200">
+                        <li>Exclusivo para clientes elegíveis</li>
+                        <li>Recompensas conforme regulamento</li>
+                        <li>Acompanhe tudo no painel Invite Shiver</li>
+                    </ul>
 
                     <div class="hero__actions" data-animate="rise" data-delay="240">
 
-                        <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                            Acessar Invite Shiver
+                        <a
+                            href="https://www.shiverbroker.com/"
+                            class="button button--primary"
+                            data-track="cta_hero_primary"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Entrar no Invite Shiver
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
 
                         <a href="#como-funciona" class="button button--secondary">
-                            Como funciona
+                            Como participar
                         </a>
 
                     </div>
+
+                    <p class="hero__risk" data-animate="rise" data-delay="280">
+                        Investir envolve riscos. Recompensas sujeitas a
+                        elegibilidade e ao
+                        <a href="#regulamento">regulamento oficial</a>.
+                    </p>
 
                 </div>
 
@@ -230,8 +268,11 @@
                     </h2>
 
                     <p>
-                        Quanto mais amigos qualificados você indicar,
-                        mais você avança nas missões e recompensas.
+                        Você indica amigos para a Shiver Broker. Quando
+                        o indicado se torna um trader qualificado —
+                        cadastro pelo seu link, depósito e operações
+                        válidas conforme o regulamento — você avança
+                        nas missões e desbloqueia recompensas.
                     </p>
 
                 </div>
@@ -385,8 +426,13 @@
                 </div>
 
                 <div class="section-cta" data-reveal="fade">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shiver
+                    <a
+                        href="https://www.shiverbroker.com/"
+                        class="button button--primary"
+                        data-track="cta_how_it_works"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Entrar no Invite Shiver
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -407,12 +453,49 @@
 
             <div class="container">
 
+                <div class="section-heading" data-reveal="fade">
+
+                    <span class="section-heading__eyebrow">
+                        O que você pode desbloquear
+                    </span>
+
+                    <h2>
+                        Pacote de
+                        <span>benefícios do programa.</span>
+                    </h2>
+
+                    <p>
+                        Valores e condições sujeitos ao regulamento vigente
+                        e à elegibilidade de cada campanha.
+                    </p>
+
+                </div>
+
+                <div class="offer-pack" data-reveal="fade">
+
+                    <article class="offer-pack__item">
+                        <strong>Até R$500</strong>
+                        <span>em saldo para quem indica e avança nas missões</span>
+                    </article>
+
+                    <article class="offer-pack__item">
+                        <strong>Até US$15</strong>
+                        <span>Risk Free para o amigo indicado elegível</span>
+                    </article>
+
+                    <article class="offer-pack__item">
+                        <strong>VIP e experiências</strong>
+                        <span>níveis especiais conforme conquistas da campanha</span>
+                    </article>
+
+                </div>
+
                 <div class="benefit-card">
 
                     <div class="benefit-card__content">
 
                         <span class="section-heading__eyebrow benefit-card__fade">
-                            Benefício para quem entra
+                            Benefício principal para quem indica
                         </span>
 
                         <div class="benefit-card__title-row benefit-card__fade benefit-card__fade--delay-1">
@@ -426,10 +509,16 @@
                             </span>
 
                             <h2>
-                                Invista junto dos seus amigos e
-                                <span>desbloqueie ainda hoje.</span>
+                                Indique amigos elegíveis e
+                                <span>desbloqueie recompensas.</span>
                             </h2>
                         </div>
+
+                        <p class="benefit-card__fade benefit-card__fade--delay-1">
+                            Só conta indicação de quem se cadastra pelo seu link
+                            e cumpre depósito e operações válidas — o
+                            <strong>trader qualificado</strong> do programa.
+                        </p>
 
                     </div>
 
@@ -523,9 +612,10 @@
                         <a
                             href="https://www.shiverbroker.com/"
                             class="button button--primary progress-board__cta"
+                            data-track="cta_progress"
                             target="_blank"
                             rel="noopener noreferrer">
-                            Acessar Invite Shiver
+                            Entrar no painel Invite Shiver
                             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
 
@@ -534,7 +624,8 @@
                 </div>
 
                 <p class="progress__disclaimer" data-reveal="fade" data-delay="160">
-                    Dados meramente ilustrativos.
+                    Simulação ilustrativa. Os números e o painel exibidos nesta
+                    seção não representam dados reais da sua conta.
                 </p>
 
             </div>
@@ -562,10 +653,12 @@
                     </h2>
 
                     <p>
-                        Nem todo cadastro realizado pelo seu link
-                        necessariamente conta para uma missão.
-                        O indicado precisa cumprir os critérios
-                        definidos pelo programa.
+                        Nem todo cadastro pelo seu link conta para missão.
+                        O indicado precisa se tornar um
+                        <strong>trader qualificado</strong>: cadastro
+                        atribuído à sua indicação, depósito mínimo e
+                        operações válidas — números oficiais no
+                        <a href="#regulamento">regulamento</a>.
                     </p>
 
                 </div>
@@ -729,9 +822,8 @@
                 </div>
 
                 <div class="section-cta" data-reveal="fade">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shiver
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#qualificado" class="button button--secondary">
+                        Ver critérios de qualificação
                     </a>
                 </div>
 
@@ -772,6 +864,9 @@
 
                         <span class="conquest-panel__eyebrow">Ranking</span>
                         <h3>Veja quem está liderando.</h3>
+                        <p class="conquest-panel__note">
+                            Exemplo ilustrativo — não representa ranking real.
+                        </p>
 
                         <ul class="ranking-list">
                             <li class="ranking-list__item">
@@ -864,9 +959,8 @@
                 </div>
 
                 <div class="section-cta" data-reveal="fade">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shiver
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#missoes" class="button button--secondary">
+                        Ver missões do programa
                     </a>
                 </div>
 
@@ -919,6 +1013,14 @@
                             <i class="fa-solid fa-user-group"></i>
                         </div>
 
+                        <strong>
+                            5
+                        </strong>
+
+                        <h3>
+                            Indicados qualificados
+                        </h3>
+
                         <p>
                             Primeira recompensa desbloqueável.
                         </p>
@@ -935,6 +1037,14 @@
                         <div class="mission-card__icon">
                             <i class="fa-solid fa-users"></i>
                         </div>
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <h3>
+                            Indicados qualificados
+                        </h3>
 
                         <p>
                             Continue crescendo sua rede.
@@ -978,6 +1088,14 @@
                             <i class="fa-solid fa-trophy"></i>
                         </div>
 
+                        <strong>
+                            25
+                        </strong>
+
+                        <h3>
+                            Indicados qualificados
+                        </h3>
+
                         <p>
                             Alcance a próxima grande recompensa.
                         </p>
@@ -986,10 +1104,15 @@
 
                 </div>
 
+                <p class="missions__disclaimer" data-reveal="fade">
+                    Metas ilustrativas do programa. Valores finais e etapas
+                    vigentes constam no
+                    <a href="#regulamento">regulamento oficial</a>.
+                </p>
+
                 <div class="section-cta" data-reveal="fade">
-                    <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                        Acessar Invite Shiver
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#regulamento" class="button button--secondary">
+                        Ver termos e regulamento
                     </a>
                 </div>
 
@@ -1244,12 +1367,88 @@
                             <div class="faq-item__body">
                                 <p>
                                     O regulamento completo fica disponível na
-                                    plataforma Invite Shiver e também na seção de
-                                    termos desta página, com as condições oficiais.
+                                    plataforma Shiver Broker / Invite Shiver e
+                                    também na seção
+                                    <a href="#termos">Termos, condições e riscos</a>
+                                    desta página.
                                 </p>
                             </div>
 
                         </details>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         TERMOS E RISCO
+    ====================================================== -->
+
+        <section class="section terms" id="termos">
+
+            <div class="container">
+
+                <div class="terms-card" data-reveal="fade">
+
+                    <div class="terms-card__icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div class="terms-card__content">
+
+                        <span class="section-heading__eyebrow">
+                            Importante
+                        </span>
+
+                        <h2 id="regulamento">
+                            Termos, condições e riscos
+                        </h2>
+
+                        <p>
+                            A participação no Invite Shiver está sujeita
+                            ao regulamento oficial da Shiver Broker,
+                            critérios de elegibilidade, disponibilidade
+                            regional, condições de saque e demais regras
+                            aplicáveis.
+                        </p>
+
+                        <p>
+                            Recompensas e benefícios apresentados nesta
+                            página podem depender do cumprimento de
+                            condições específicas e não devem ser
+                            interpretados como garantia de ganho.
+                            Investir envolve risco de perda de capital.
+                        </p>
+
+                        <div class="terms-links">
+
+                            <a
+                                href="https://www.shiverbroker.com/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Regulamento na plataforma
+                            </a>
+
+                            <a href="#privacidade" id="privacidade">
+                                <i class="fa-solid fa-lock"></i>
+                                Privacidade
+                            </a>
+
+                        </div>
+
+                        <p class="terms-card__privacy">
+                            O tratamento de dados pessoais segue a política
+                            de privacidade da Shiver Broker, disponível na
+                            plataforma oficial. Esta landing não coleta
+                            dados de cadastro — o fluxo completo ocorre em
+                            shiverbroker.com.
+                        </p>
 
                     </div>
 
@@ -1275,16 +1474,22 @@
                     <div class="final-cta__copy">
 
                         <h2>
-                            Convide seus amigos e
-                            <span>avance para a próxima recompensa.</span>
+                            Pronto para indicar pela
+                            <span>Shiver Broker?</span>
                         </h2>
 
                         <p>
-                            Mais amigos. Mais conquistas. Mais recompensas para você.
+                            Entre no Invite Shiver, compartilhe seu link e
+                            acompanhe as indicações qualificadas no painel.
                         </p>
 
-                        <a href="https://www.shiverbroker.com/" class="button button--primary" target="_blank" rel="noopener noreferrer">
-                            Acessar Invite Shiver
+                        <a
+                            href="https://www.shiverbroker.com/"
+                            class="button button--primary"
+                            data-track="cta_final"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Entrar no Invite Shiver
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
 
@@ -1343,8 +1548,9 @@
             </a>
 
             <p class="footer__description">
-                Conecte pessoas, compartilhe oportunidades e transforme
-                suas indicações em novas possibilidades.
+                Invite Shiver é o programa oficial de indicação da
+                Shiver Broker. Indique amigos elegíveis e acompanhe
+                suas recompensas na plataforma.
             </p>
 
         </div>
@@ -1383,6 +1589,10 @@
                 FAQ
             </a>
 
+            <a href="#termos">
+                Termos e riscos
+            </a>
+
             <a href="#privacidade">
                 Privacidade
             </a>
@@ -1401,10 +1611,15 @@
                 Faça sua próxima indicação.
             </h3>
 
-            <a href="https://www.shiverbroker.com/" class="footer__button" target="_blank" rel="noopener noreferrer">
-    Acessar plataforma
-    <span aria-hidden="true">↗</span>
-</a>
+            <a
+                href="https://www.shiverbroker.com/"
+                class="footer__button"
+                data-track="cta_footer"
+                target="_blank"
+                rel="noopener noreferrer">
+                Entrar no Invite Shiver
+                <span aria-hidden="true">↗</span>
+            </a>
         </div>
 
     </div>
@@ -1414,11 +1629,11 @@
     <div class="container footer__bottom" data-reveal="fade" data-delay="120">
 
         <span>
-            © 2026 Invite Shiver. Todos os direitos reservados.
+            © 2026 Invite Shiver · Shiver Broker. Todos os direitos reservados.
         </span>
 
         <span>
-            Invista com responsabilidade.
+            Investir envolve riscos. Consulte o regulamento oficial.
         </span>
 
     </div>

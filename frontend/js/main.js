@@ -531,12 +531,40 @@ function initMobileMenu() {
         refresh();
     }
 
+    function initCtaTracking() {
+        document.addEventListener("click", (event) => {
+            const target = event.target.closest("[data-track]");
+            if (!target) return;
+
+            const eventName = target.getAttribute("data-track");
+            if (!eventName) return;
+
+            const payload = {
+                event: eventName,
+                href: target.getAttribute("href") || "",
+                label: (target.textContent || "").trim().replace(/\s+/g, " "),
+                ts: Date.now(),
+            };
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(payload);
+
+            if (typeof window.gtag === "function") {
+                window.gtag("event", eventName, {
+                    event_category: "cta",
+                    event_label: payload.label,
+                });
+            }
+        });
+    }
+
     function init() {
         initHeaderScroll();
         initMobileMenu();
         initCopyLink();
         initFaqAccordion();
         initStepsCarousel();
+        initCtaTracking();
     }
 
     if (document.readyState === "loading") {

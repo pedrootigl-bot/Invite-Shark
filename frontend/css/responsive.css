@@ -435,13 +435,51 @@ RESPONSIVE — TABLET
         text-align: center;
     }
 
-    /* Libera os filhos para reordenar: texto → imagem → botões */
+    /* Libera os filhos para reordenar: título → texto → imagem → trechos → botões */
     .hero__content {
         display: contents;
     }
 
-    .hero__eyebrow {
+    .hero__title {
         order: 1;
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .hero__description {
+        order: 2;
+
+        width: 100%;
+        max-width: 520px;
+        margin-inline: auto;
+    }
+
+    .hero__visual {
+        order: 3;
+    }
+
+    .hero__highlights {
+        order: 4;
+
+        width: 100%;
+        max-width: 420px;
+        margin: 8px auto 0;
+
+        text-align: left;
+    }
+
+    .hero__risk {
+        order: 5;
+
+        width: 100%;
+        max-width: 420px;
+        margin: 4px auto 0;
+
+        text-align: center;
+    }
+
+    .hero__eyebrow {
+        order: 6;
 
         display: flex;
         justify-content: center;
@@ -451,28 +489,11 @@ RESPONSIVE — TABLET
 
         width: 100%;
         max-width: 560px;
-    }
-
-    .hero__title {
-        order: 2;
-        width: 100%;
-        max-width: 560px;
-    }
-
-    .hero__description {
-        order: 3;
-
-        width: 100%;
-        max-width: 520px;
-        margin-inline: auto;
-    }
-
-    .hero__visual {
-        order: 4;
+        margin-top: 8px;
     }
 
     .hero__actions {
-        order: 5;
+        order: 7;
 
         display: flex;
         align-items: center;
@@ -483,7 +504,7 @@ RESPONSIVE — TABLET
 
         width: 100%;
         max-width: 560px;
-        margin-top: 4px;
+        margin-top: 12px;
     }
 
     /* =====================================================
@@ -1156,26 +1177,45 @@ RESPONSIVE — MOBILE
     }
 
     .hero__title {
+        order: 1;
         font-size: clamp(36px, 10vw, 52px);
         letter-spacing: -0.04em;
     }
 
     .hero__description {
+        order: 2;
         font-size: 14px;
         margin-top: 18px;
         max-width: 34ch;
     }
 
-    .hero__actions {
-        gap: 10px;
-        margin-top: 8px;
-    }
-
     .hero__visual {
+        order: 3;
         min-height: 0;
         width: min(100%, 340px);
         max-width: 340px;
         margin-inline: auto;
+    }
+
+    .hero__highlights {
+        order: 4;
+        max-width: 340px;
+        margin-top: 4px;
+    }
+
+    .hero__risk {
+        order: 5;
+        max-width: 340px;
+    }
+
+    .hero__eyebrow {
+        order: 6;
+    }
+
+    .hero__actions {
+        order: 7;
+        gap: 10px;
+        margin-top: 12px;
     }
 
     .hero__reward {
@@ -1382,14 +1422,6 @@ RESPONSIVE — MOBILE
 
     .conquest-panel {
         padding: 22px 18px;
-    }
-
-    .conquest-panel--rewards {
-        display: none;
-    }
-
-    .conquest__layout {
-        grid-template-columns: 1fr;
     }
 
     .conquest-rewards {
